@@ -1,0 +1,1560 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\Texton.ico"
+IDR_TEXTONTYPE          ICON    DISCARDABLE     "res\\TextonDoc.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP  MOVEABLE PURE   "res\\Toolbar.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR MOVEABLE PURE  16, 15
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVE
+    SEPARATOR
+    BUTTON      ID_EDIT_CUT
+    BUTTON      ID_EDIT_COPY
+    BUTTON      ID_EDIT_PASTE
+    SEPARATOR
+    BUTTON      ID_FILE_PRINT
+    BUTTON      ID_APP_ABOUT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM "Import PGM...",               ID_FILE_IMPORTPGM
+        MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
+        MENUITEM "Save &As...",                 ID_FILE_SAVE_AS
+        MENUITEM SEPARATOR
+        MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
+        MENUITEM "Print Pre&view",              ID_FILE_PRINT_PREVIEW
+        MENUITEM "P&rint Setup...",             ID_FILE_PRINT_SETUP
+        MENUITEM SEPARATOR
+        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
+        MENUITEM SEPARATOR
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
+        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR
+        MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+        MENUITEM "Tasks...",                    ID_VIEW_TASKS
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About FudgeBox...",          ID_APP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS MOVEABLE PURE 
+BEGIN
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL
+    "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY 
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 246, 54
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About FudgeBox"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "FudgeBox Version 1.0",IDC_STATIC,49,17,67,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2002",IDC_STATIC,49,28,67,8
+    DEFPUSHBUTTON   "OK",IDOK,207,19,32,14,WS_GROUP
+    ICON            IDI_ICACUK,IDC_STATIC,163,17,20,20
+    ICON            IDI_SOTON,IDC_STATIC,136,17,20,20
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "Texton MFC Application\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "FudgeBox\0"
+            VALUE "LegalCopyright", "Copyright (C) 1901\0"
+            VALUE "OriginalFilename", "Texton.EXE\0"
+            VALUE "ProductName", "FudgeBox Application\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO MOVEABLE PURE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 239
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 47
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDR_MAINFRAME           "FudgeBox\n\nFudgeBoxn\n\n\nTexton.Document\nTexton Document"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "FudgeBox"
+    AFX_IDS_IDLEMESSAGE     "Ready"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_NEW             "Create a new document\nNew"
+    ID_FILE_OPEN            "Open an existing document\nOpen"
+    ID_FILE_CLOSE           "Close the active document\nClose"
+    ID_FILE_SAVE            "Save the active document\nSave"
+    ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
+    ID_FILE_PAGE_SETUP      "Change the printing options\nPage Setup"
+    ID_FILE_PRINT_SETUP     "Change the printer and printing options\nPrint Setup"
+    ID_FILE_PRINT           "Print the active document\nPrint"
+    ID_FILE_PRINT_PREVIEW   "Display full pages\nPrint Preview"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
+    ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "Open this document"
+    ID_FILE_MRU_FILE2       "Open this document"
+    ID_FILE_MRU_FILE3       "Open this document"
+    ID_FILE_MRU_FILE4       "Open this document"
+    ID_FILE_MRU_FILE5       "Open this document"
+    ID_FILE_MRU_FILE6       "Open this document"
+    ID_FILE_MRU_FILE7       "Open this document"
+    ID_FILE_MRU_FILE8       "Open this document"
+    ID_FILE_MRU_FILE9       "Open this document"
+    ID_FILE_MRU_FILE10      "Open this document"
+    ID_FILE_MRU_FILE11      "Open this document"
+    ID_FILE_MRU_FILE12      "Open this document"
+    ID_FILE_MRU_FILE13      "Open this document"
+    ID_FILE_MRU_FILE14      "Open this document"
+    ID_FILE_MRU_FILE15      "Open this document"
+    ID_FILE_MRU_FILE16      "Open this document"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_FIND            "Find the specified text\nFind"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
+    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "Show or hide the toolbar\nToggle ToolBar"
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_PREVIEW_CLOSE   "Close print preview mode\nCancel Preview"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.K.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_UK
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ZOOM_ICON           ICON    DISCARDABLE     "res\\zoom_ico.ico"
+IDI_ICACUK              ICON    DISCARDABLE     "res\\icon1.ico"
+IDI_SOTON               ICON    DISCARDABLE     "res\\soton.ico"
+IDI_VTK                 ICON    DISCARDABLE     "res\\ico00001.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_THRES DIALOG DISCARDABLE  0, 0, 159, 182
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Image Thresholding"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_THRES_LOWER,82,29,36,12,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin2",IDC_THRES_SPINL,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS,120,29,10,14
+    EDITTEXT        IDC_THRES_UPPER,82,54,36,12,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin3",IDC_THRES_SPINU,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS,120,55,10,14
+    DEFPUSHBUTTON   "Apply",ID_APPLY,22,161,50,14
+    PUSHBUTTON      "Close",IDCANCEL,89,161,50,14
+    GROUPBOX        "Threshold ranges",IDC_STATIC,7,7,145,80
+    LTEXT           "Lower threshold:",IDC_STATIC,24,32,53,8
+    LTEXT           "Upper threshold:",IDC_STATIC,24,57,53,8
+    PUSHBUTTON      "Animate !",IDC_THRES_ANIMATE,106,107,39,14
+    GROUPBOX        "Animation",IDC_STATIC,7,94,145,36
+    CONTROL         "Show original image",IDC_ANIMATE_SHOW,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,39,140,79,10
+    LTEXT           "Range width:",IDC_STATIC,15,111,43,8
+    EDITTEXT        IDC_THRES_WIDTH,62,108,36,12,ES_AUTOHSCROLL | ES_NUMBER
+END
+
+IDD_EDGEDET DIALOG DISCARDABLE  0, 0, 186, 190
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Edge Detection"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Apply",IDOK,39,169,50,14
+    PUSHBUTTON      "Close",IDCANCEL,97,169,50,14
+    GROUPBOX        "Canny options",IDC_STATIC,7,7,172,103
+    EDITTEXT        IDC_CNY_THL,88,25,36,12,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin2",IDC_CNY_SPINL,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,126,25,11,
+                    14
+    EDITTEXT        IDC_CNY_THU,88,50,36,12,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin3",IDC_CNY_SPINU,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,126,50,11,
+                    14
+    LTEXT           "Lower threshold:",IDC_STATIC,30,28,53,8
+    LTEXT           "Upper threshold:",IDC_STATIC,30,53,53,8
+    EDITTEXT        IDC_CNY_STD,88,75,36,12,ES_AUTOHSCROLL
+    CONTROL         "Spin3",IDC_CNY_SPINSTD,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS,126,76,11,14
+    LTEXT           "Standard deviation:",IDC_STATIC,21,77,62,8
+    CONTROL         "Show original image",IDC_EDGE_SHOW,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,53,115,79,10
+    CONTROL         "Magnitude shading",IDC_EDGE_RED,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,53,130,76,10
+    PUSHBUTTON      "Save Result",IDC_EDGE_SAVE,65,145,60,16
+END
+
+IDD_TASKS DIALOG DISCARDABLE  0, 0, 319, 273
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Image Tasks"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Go",IDC_ORIGINAL_GO,119,18,18,14
+    PUSHBUTTON      "Go",IDC_CANNY_GO,119,44,18,14
+    PUSHBUTTON      "Go",IDC_THRES_GO,119,72,18,14
+    PUSHBUTTON      "Go",IDC_CONTDRW_GO,119,95,18,14
+    PUSHBUTTON      "Go",IDC_CONTTMPL_GO,119,121,18,14
+    PUSHBUTTON      "Go",IDC_HOUGH_GO,119,145,18,14
+    PUSHBUTTON      "Go",IDC_ARC_GO,119,168,18,14
+    PUSHBUTTON      "Go",IDC_FOURIER_GO,119,193,18,14,WS_DISABLED
+    LTEXT           "Canny edge detection",IDC_STATIC,37,48,80,10
+    LTEXT           "Grey-level thresholding",IDC_STATIC,37,74,80,10
+    LTEXT           "Contour drawing",IDC_STATIC,37,100,80,10
+    LTEXT           "Show original image",IDC_STATIC,37,22,80,10
+    LTEXT           "Template matching",IDC_STATIC,37,126,80,10
+    LTEXT           "Circle Hough Transform",IDC_STATIC,37,150,80,10
+    LTEXT           "Circular arc fitting",IDC_STATIC,37,173,80,10
+    LTEXT           "Fourier circle detection",IDC_STATIC,37,197,80,10,
+                    WS_DISABLED
+    PUSHBUTTON      "Go",IDC_VOORHEES_GO,119,214,18,14
+    LTEXT           "Marr-Hildreth operator",IDC_STATIC,37,218,80,10
+    PUSHBUTTON      "Go",IDC_IFTW_GO,119,239,18,14
+    LTEXT           "I.F.T. Watershed",IDC_STATIC,37,242,80,10
+    GROUPBOX        "Imperial VIP implementations",IDC_STATIC,159,15,134,104
+    PUSHBUTTON      "Go",IDC_NOISEIMG_GO,257,41,18,14
+    LTEXT           "White Noise Image",IDC_STATIC,175,46,80,10
+    PUSHBUTTON      "Go",IDC_STREAMLNS,257,63,18,14
+    LTEXT           "Transient Streamlines",IDC_STATIC,175,67,80,10
+    PUSHBUTTON      "Go",IDC_RESTORATION_GO,257,85,18,14
+    LTEXT           "MRI Restoration",IDC_STATIC,175,88,80,10
+    PUSHBUTTON      "Go",IDC_VORTEX_GO,258,130,18,14
+    LTEXT           "Vortex detection",IDC_STATIC,176,133,80,10
+END
+
+IDD_CONTOUR_OPTS DIALOG DISCARDABLE  0, 0, 186, 166
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Draw Contour"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Close",IDCANCEL,65,145,50,14
+    CONTROL         "Draw",IDC_CTR_DRAW,"Button",BS_AUTORADIOBUTTON,52,46,37,
+                    12
+    CONTROL         "Erase",IDC_CTR_ERS,"Button",BS_AUTORADIOBUTTON,52,64,37,
+                    12
+    PUSHBUTTON      "Clear All",IDC_CTR_CLEAR,93,63,54,15
+    PUSHBUTTON      "Import...",IDC_CTR_IPRT,93,44,54,15
+    PUSHBUTTON      "Ellipse",IDC_ELLIPSE,61,114,58,15
+    PUSHBUTTON      "Circle",IDC_CIRCLE,62,91,58,15
+END
+
+IDD_TMPL DIALOG DISCARDABLE  0, 0, 358, 409
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Template Matching"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_TPL_ANGLE,41,19,38,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TPL_WP,119,18,38,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TPL_LW,41,43,38,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TPL_LH,119,43,38,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TPL_W,41,71,38,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TPL_G,120,71,38,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TPL_CX,41,94,38,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TPL_CY,119,94,38,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TPL_TRAINWP,122,146,38,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TPL_TRAINLW,45,167,38,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TPL_TRAINLH,123,167,38,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TPL_INTWGTH,219,114,38,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TPL_WPWGTH,298,114,38,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TPL_LWWGTH,220,138,38,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TPL_LHWGTH,298,138,38,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TPL_ANGMAG,221,19,38,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TPL_WPMAG,299,18,38,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TPL_LWMAG,221,43,38,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TPL_LHMAG,299,43,38,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TPL_WMAG,221,71,38,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TPL_GMAG,300,71,38,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Draw Initial",IDC_TMPL_DRAWINIT,27,244,50,14
+    PUSHBUTTON      "Start",IDC_TMPL_START,186,246,50,15
+    CONTROL         "Fixed Position",IDC_TMPL_POSFIX,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,105,244,61,10
+    PUSHBUTTON      "Close",IDCANCEL,153,388,50,14
+    GROUPBOX        "Initial Template",IDC_STATIC,7,7,166,111
+    LTEXT           "Static",IDC_TMPL_PROGRESS,159,296,166,8
+    CONTROL         "Progress1",IDC_PROGRESS1,"msctls_progress32",WS_BORDER,
+                    61,294,78,12
+    LTEXT           "angle",IDC_STATIC,19,23,18,8
+    LTEXT           "wp",IDC_STATIC,97,22,10,8
+    LTEXT           "lw",IDC_STATIC,19,47,8,8
+    LTEXT           "lh",IDC_STATIC,97,47,8,8
+    LTEXT           "w",IDC_STATIC,19,74,8,8
+    LTEXT           "g",IDC_STATIC,98,74,8,8
+    LTEXT           "cx",IDC_STATIC,19,98,8,8
+    LTEXT           "cy",IDC_STATIC,97,98,8,8
+    GROUPBOX        "Directions",IDC_STATIC,185,7,166,89
+    LTEXT           "angle",IDC_STATIC,199,23,18,8
+    LTEXT           "wp",IDC_STATIC,277,22,10,8
+    LTEXT           "lw",IDC_STATIC,199,47,8,8
+    LTEXT           "lh",IDC_STATIC,277,47,8,8
+    LTEXT           "w",IDC_STATIC,199,74,8,8
+    LTEXT           "g",IDC_STATIC,278,74,8,8
+    CTEXT           "Static",IDC_TMPL_FINAL,10,314,336,11
+    GROUPBOX        "Weights",IDC_STATIC,185,101,166,84
+    LTEXT           "int",IDC_STATIC,197,117,13,8
+    LTEXT           "wp",IDC_STATIC,276,117,17,8
+    LTEXT           "wp",IDC_STATIC,100,151,10,8
+    GROUPBOX        "Parameters for Fixed Template",IDC_STATIC,7,123,166,97
+    LTEXT           "lw",IDC_STATIC,23,172,8,8
+    LTEXT           "lh",IDC_STATIC,101,172,8,8
+    LTEXT           "lw",IDC_STATIC,198,141,8,8
+    LTEXT           "lh",IDC_STATIC,276,141,8,8
+    CONTROL         "Save Call Parms",IDC_TMPL_SAVE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,105,271,67,10
+    EDITTEXT        IDC_TPL_TRAINW,45,186,38,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TPL_TRAING,123,186,38,14,ES_AUTOHSCROLL
+    LTEXT           "w",IDC_STATIC,23,191,8,8
+    LTEXT           "g",IDC_STATIC,101,191,8,8
+    EDITTEXT        IDC_TPL_MHWGTH,220,162,38,14,ES_AUTOHSCROLL
+    LTEXT           "mahal",IDC_STATIC,193,167,21,8
+    CONTROL         "Fixed Template",IDC_TMPL_TMPFIX,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,105,258,61,10
+    EDITTEXT        IDC_TPL_TRAINANG,44,146,38,14,ES_AUTOHSCROLL
+    LTEXT           "angle",IDC_STATIC,22,151,18,8
+    GROUPBOX        "Search Controls",IDC_STATIC,7,232,344,102
+    PUSHBUTTON      "Search and Optimise",IDC_TMPL_START2,247,246,79,15
+    GROUPBOX        "Search",IDC_STATIC,185,190,166,31
+    EDITTEXT        IDC_TPL_MAXERR,246,200,30,14,ES_AUTOHSCROLL
+    LTEXT           "max error t'hold",IDC_STATIC,194,203,50,8
+    PUSHBUTTON      "Set parameters to training values",IDC_BUTTON1,21,262,
+                    63,24,BS_MULTILINE
+    PUSHBUTTON      "Downscale, Search, Threshold, Cluster",IDC_TMPLDSTC,262,
+                    266,75,26,BS_MULTILINE
+    EDITTEXT        IDC_TPL_MAXERR2,316,200,27,14,ES_AUTOHSCROLL
+    LTEXT           "# clusters",IDC_STATIC,280,204,35,8
+    EDITTEXT        IDC_TPL_MAXERR3,227,272,27,14,ES_AUTOHSCROLL
+    LTEXT           "dnsc factor",IDC_STATIC,185,274,41,8
+    GROUPBOX        "Data Plots",IDC_STATIC,7,343,344,36
+    PUSHBUTTON      "Draw Best Fit",IDC_TMPL_DRAWFIT,105,356,64,14,
+                    WS_DISABLED
+    PUSHBUTTON      "Draw Error Map",IDC_DRAW_ERROR,191,356,64,14,
+                    WS_DISABLED
+    PUSHBUTTON      "Draw Error T'hold",IDC_DRAW_THRES,277,356,64,14,
+                    WS_DISABLED
+    PUSHBUTTON      "Draw Original",IDC_TMPL_DRAWORI,19,356,64,14
+END
+
+IDD_TEXTOUT DIALOG DISCARDABLE  0, 0, 127, 171
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Output"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Close",IDCANCEL,69,142,50,14
+    EDITTEXT        IDC_EDITTEXT,7,7,113,130,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    WS_VSCROLL
+END
+
+IDD_HOUGH_OPTS DIALOG DISCARDABLE  0, 0, 164, 171
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Hough Transform"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Apply",ID_HOUGH_APPLY,30,150,50,14
+    PUSHBUTTON      "Close",IDCANCEL,86,150,50,14
+    GROUPBOX        "Diameter Range",IDC_STATIC,7,7,150,63
+    LTEXT           "diameter/a",IDC_STATIC,27,28,35,8
+    LTEXT           "b",IDC_STATIC,58,47,8,8
+    EDITTEXT        IDC_HOUGH_MIN,70,24,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_HOUGH_MAX,70,43,40,14,ES_AUTOHSCROLL
+    CONTROL         "Circles",IDC_HOUGH_CIRCLES,"Button",BS_AUTORADIOBUTTON,
+                    59,82,37,10
+    CONTROL         "Ellipses",IDC_HOUGH_ELLIPSES,"Button",
+                    BS_AUTORADIOBUTTON,59,100,39,10
+    PUSHBUTTON      "Save Result",IDC_HOUGH_SAVE,53,127,60,16
+END
+
+IDD_ARCFIT DIALOG DISCARDABLE  0, 0, 186, 281
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Circular Arc Fitting"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_ARC_MIN_PNTS,53,33,36,12,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_ARC_MAX_PNTS,137,34,36,12,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_ARC_MAX_ERROR,98,58,36,12,ES_AUTOHSCROLL | ES_NUMBER
+    PUSHBUTTON      "Original->Canny",IDC_ARCFIT_ORYTOCANNY,7,127,51,14
+    DEFPUSHBUTTON   "Apply",ID_APPLY,68,127,50,14
+    PUSHBUTTON      "Close",IDCANCEL,129,127,50,14
+    PUSHBUTTON      "Draw Original",IDC_BUTTON1,35,178,51,14
+    PUSHBUTTON      "Draw Canny",IDC_ARCFIT_CANNY,95,178,51,14
+    PUSHBUTTON      "Arc Bins",IDC_ARCFIT_BINS,35,199,51,14
+    PUSHBUTTON      "Arc Plot",IDC_ARCFIT_REDRAW,95,199,51,14
+    PUSHBUTTON      "Seed Claims",IDC_ARCFIT_CLAIMS,35,219,51,14
+    PUSHBUTTON      "Claim arcs",IDC_ARCFIT_CLAIMARCS,95,219,51,14
+    PUSHBUTTON      "Original w/ max",IDC_ARCFIT_ORIGREEN,95,239,51,14
+    GROUPBOX        "Variables",IDC_STATIC,7,7,172,101
+    LTEXT           "Min #points",IDC_STATIC,13,36,38,8
+    LTEXT           "Maximum error",IDC_STATIC,40,62,46,8
+    CTEXT           "Static",IDC_ARCFIT_TEXT,12,94,162,8
+    CTEXT           "Static",IDC_ARCFIT_IMGSIZE,11,80,162,8
+    GROUPBOX        "Result Plotting",IDC_STATIC,7,153,172,108
+    LTEXT           "Max #points",IDC_STATIC,96,36,40,8
+END
+
+IDD_FOURIER DIALOG DISCARDABLE  0, 0, 211, 294
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Canny",IDC_FFT_CANNY,43,30,50,14
+    PUSHBUTTON      "Original -> Canny",IDC_FFT_CANNYCOPY,107,30,67,14
+    PUSHBUTTON      "FFT",IDC_FFT_FFT,43,66,50,14,WS_DISABLED
+    PUSHBUTTON      "Rotate",IDC_FFT_ROTATE,43,102,50,14,WS_DISABLED
+    EDITTEXT        IDC_FFT_DEGREES,113,103,26,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    PUSHBUTTON      "Combine",IDC_FFT_COMBINE,43,174,50,14
+    PUSHBUTTON      "Close",IDOK,80,253,50,14
+    GROUPBOX        "Circle Detection Steps",IDC_STATIC,7,7,197,233
+    LTEXT           "by",IDC_FFT_ROTATE_STATIC1,97,106,8,8,WS_DISABLED
+    LTEXT           "degrees",IDC_FFT_ROTATE_STATIC2,145,106,26,8,
+                    WS_DISABLED
+    PUSHBUTTON      "Inverse FFT",IDC_FFT_INVERSE,105,65,50,14,WS_DISABLED
+    PUSHBUTTON      "FFT Rotated",IDC_FFT_FFTROT,43,138,50,14
+    PUSHBUTTON      "Inverse FFT",IDC_FFT_ROTINVERSE,105,137,50,14
+    PUSHBUTTON      "Invert",IDC_FFT_COMINV,43,210,50,14
+END
+
+IDD_VOORHEES DIALOG DISCARDABLE  0, 0, 186, 246
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Marr-Hildreth operator"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,69,225,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,129,225,50,14
+    PUSHBUTTON      "LoG convolution",IDC_LOG,24,57,73,18
+    EDITTEXT        IDC_LOG_THRES,109,59,40,14,ES_AUTOHSCROLL
+    LTEXT           "threshold:",IDC_STATIC,109,46,32,8
+    PUSHBUTTON      "Show Original",IDC_SHOW_ORI,68,139,50,14
+    PUSHBUTTON      "Save Current Result",IDC_SAVE,53,166,77,14
+    PUSHBUTTON      "Threshold at",IDC_THRES_AT,23,84,73,18
+    EDITTEXT        IDC_AT_THRES,109,86,40,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Gaussian Blur",IDC_GAUSS_BLUR,23,22,73,18
+    EDITTEXT        IDC_BLUR_SIGMA,109,24,40,14,ES_AUTOHSCROLL
+    LTEXT           "sigma:",IDC_STATIC,109,12,21,8
+END
+
+IDD_IFTW DIALOG DISCARDABLE  0, 0, 185, 252
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Foresting Transform - Watershed"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDCANCEL,66,231,50,14
+    PUSHBUTTON      "Load Peaks...",IDC_PEAKS,66,26,55,14
+    CTEXT           "peaks image filename",IDC_STATIC_IFTW_DOTS,7,44,171,10
+    PUSHBUTTON      "Watershed",IDC_IFTW_WATERSHED_GO,28,105,50,14
+    PUSHBUTTON      "Show Peaks",IDC_IFTW_SHOW_PEAKS,28,59,50,14
+    PUSHBUTTON      "Show Original",IDC_IFTW_ORIGINAL,104,59,50,14
+    PUSHBUTTON      "Show Watershed",IDC_IFTW_SHOW_W,104,105,64,14
+    PUSHBUTTON      "Path Costs",IDC_IFTW_COSTS,28,82,50,14
+    PUSHBUTTON      "Show Costs",IDC_IFTW_SHOW_COSTS,104,82,50,14
+    CTEXT           "Static",IDC_IFTW_ROOT_TITLE_STATIC,7,200,171,8
+    CTEXT           "Static",IDC_IFTW_ROOT_VALUE_STATIC,7,214,171,8
+    PUSHBUTTON      "Interactive",IDC_IFTW_INTERACT,28,128,50,14
+    PUSHBUTTON      "Propagate",IDC_IFTW_PROPAG,104,128,50,14
+    EDITTEXT        IDC_IFTW_MACCOST,142,144,28,12,ES_AUTOHSCROLL
+    LTEXT           "max c. cost:",IDC_STATIC,101,146,39,13
+    EDITTEXT        IDC_IFTW_MAXCIRRAD,142,161,28,12,ES_AUTOHSCROLL
+    LTEXT           "circle radius:",IDC_STATIC,101,163,39,13
+    PUSHBUTTON      "Check Roots",IDC_IFTW_CHECK_ROOTS,28,151,50,14
+    EDITTEXT        IDC_IFTW_MAXITS,142,178,28,12,ES_AUTOHSCROLL
+    RTEXT           "iterations:",IDC_STATIC,101,180,39,13
+    PUSHBUTTON      "Save Matlab",IDC_IFTW_SAVEMATLAB,28,170,50,14
+END
+
+IDD_NOISEIMG DIALOG DISCARDABLE  0, 0, 186, 163
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Noise Image"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Cancel",IDCANCEL,95,142,50,14
+    PUSHBUTTON      "Go",IDC_NOISE_GO,39,142,50,14
+    LTEXT           "initial seed",IDC_STATIC,37,39,34,8
+    EDITTEXT        IDC_NOISE_SEED,83,34,40,14,ES_AUTOHSCROLL
+    LTEXT           "mean",IDC_STATIC,37,68,18,8
+    EDITTEXT        IDC_NOISE_MEAN,82,64,40,14,ES_AUTOHSCROLL
+    LTEXT           "std",IDC_STATIC,37,98,10,8
+    EDITTEXT        IDC_NOISE_STD,81,94,40,14,ES_AUTOHSCROLL
+    LTEXT           "Make sure an original image has been loaded.",
+                    IDC_STATIC,28,15,146,8
+END
+
+IDD_STREAMLS DIALOG DISCARDABLE  0, 0, 366, 266
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Transient Streamlines"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Close",IDCANCEL,245,227,50,14
+    PUSHBUTTON      "Vortex",IDC_STRM_VORTEX,20,22,36,14
+    PUSHBUTTON      "Frame...",IDC_STRM_LOAD,108,22,33,14
+    PUSHBUTTON      "-> Noise",IDC_STRM_NOISE,89,65,37,14
+    GROUPBOX        "Streamline Texture Generation",IDC_STATIC,188,7,171,174
+    GROUPBOX        "Vector Matrix",IDC_STATIC,7,7,171,38
+    LTEXT           "integration range: +/-",IDC_STATIC_ALPHA,204,28,67,8
+    EDITTEXT        IDC_STRM_ALPHA,278,26,40,14,ES_AUTOHSCROLL
+    LTEXT           "Laplacian weight",IDC_STATIC,204,52,54,8
+    EDITTEXT        IDC_STRM_LAPLW,278,50,40,14,ES_AUTOHSCROLL
+    CONTROL         "number of iterations:",IDC_STRM_OPT_ITS,"Button",
+                    BS_AUTORADIOBUTTON,202,99,79,10
+    CONTROL         "stop after each iteration",IDC_STRM_OPT_STP,"Button",
+                    BS_AUTORADIOBUTTON,202,116,90,10
+    PUSHBUTTON      "next",IDC_STRM_ITS_NEXT,297,115,21,11,WS_DISABLED
+    EDITTEXT        IDC_STRM_ITS,292,96,26,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Go",IDC_STRM_GO,201,139,30,14
+    EDITTEXT        IDC_STR_NOISE_S,23,65,19,14,ES_AUTOHSCROLL | NOT 
+                    WS_VISIBLE
+    EDITTEXT        IDC_STR_NOISE_M,52,65,32,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_STR_NOISE_V,83,65,19,14,ES_AUTOHSCROLL | NOT 
+                    WS_VISIBLE
+    RTEXT           "s",IDC_STATIC,13,70,8,8,NOT WS_VISIBLE
+    RTEXT           "% pixels",IDC_STATIC,19,70,26,8
+    RTEXT           "v",IDC_STATIC,73,70,8,8,NOT WS_VISIBLE
+    GROUPBOX        "Data Access",IDC_STATIC,7,93,171,88
+    PUSHBUTTON      "MR",IDC_SHOW_MR,13,111,26,14,WS_DISABLED
+    PUSHBUTTON      "U",IDC_SHOW_U,45,111,16,14,WS_DISABLED
+    PUSHBUTTON      "Nse",IDC_SHOW_NSE,115,111,26,14,WS_DISABLED
+    PUSHBUTTON      "V",IDC_SHOW_V,68,111,16,14,WS_DISABLED
+    PUSHBUTTON      "W",IDC_SHOW_W,91,111,16,14,WS_DISABLED
+    PUSHBUTTON      "Txt",IDC_SHOW_TXT,147,111,26,14,WS_DISABLED
+    PUSHBUTTON      "Save Current...",IDC_STRM_RES_SAVE,13,148,61,14
+    LTEXT           "velocity delta",IDC_STATIC,204,76,42,8
+    EDITTEXT        IDC_STRM_DELTA,278,73,40,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Blur",IDC_STRM_TXT_BLUR,235,139,30,14,WS_DISABLED
+    EDITTEXT        IDC_STRM_VTX_RANGE,65,22,32,14,ES_AUTOHSCROLL
+    RTEXT           "r:",IDC_STATIC,56,26,8,8
+    PUSHBUTTON      "Magn",IDC_STRM_TXT_MAGN,269,139,30,14,WS_DISABLED
+    GROUPBOX        "White Noise Matrix",IDC_STATIC,7,50,171,40
+    EDITTEXT        IDC_STR_NOISE_B,113,65,19,14,ES_AUTOHSCROLL | NOT 
+                    WS_VISIBLE
+    RTEXT           "b",IDC_STATIC,104,71,8,8,NOT WS_VISIBLE
+    PUSHBUTTON      "Zoom",IDC_STRM_ZOOM,84,148,50,14,NOT WS_VISIBLE | 
+                    WS_DISABLED
+    PUSHBUTTON      "Colour",IDC_STRM_TXT_COLOUR,303,139,30,14,WS_DISABLED
+    EDITTEXT        IDC_STRM_MAG_MULT,297,157,19,14,ES_AUTOHSCROLL
+    RTEXT           "m",IDC_STATIC,287,163,8,8
+    PUSHBUTTON      "flip",IDC_STRM_FLIP_U,45,126,16,14
+    PUSHBUTTON      "flip",IDC_STRM_FLIP_V,68,126,16,14
+    PUSHBUTTON      "flip",IDC_STRM_FLIP_W,91,126,16,14
+    EDITTEXT        IDC_STRM_INT_MULT,331,157,19,14,ES_AUTOHSCROLL
+    RTEXT           "i",IDC_STATIC,321,163,8,8
+    CONTROL         "dyn.",IDC_ALPHADYN,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,323,28,29,10
+    EDITTEXT        IDC_STRM_ZOOM_SIZE,150,148,21,14,ES_AUTOHSCROLL | NOT 
+                    WS_VISIBLE | WS_DISABLED
+    LTEXT           "w.h",IDC_STATIC,137,154,12,8,NOT WS_VISIBLE | 
+                    WS_DISABLED
+    PUSHBUTTON      "3D...",IDC_STRM_LOAD3D,145,22,25,14
+    CTEXT           "Static",IDC_STRM_IMGSIZES,13,168,161,8
+    ICON            IDI_ICACUK,IDC_STATIC,261,195,21,20
+    ICON            IDI_SOTON,IDC_STATIC,233,195,21,20
+    PUSHBUTTON      "Grid Noise",IDC_STRM_NOISE_GRID,130,65,40,14
+    GROUPBOX        "VTK Data Interface",IDC_STATIC,7,187,171,63
+    ICON            IDI_VTK,IDC_STATIC,285,193,21,20
+    PUSHBUTTON      "save arrows",IDC_STRM_VTK_STREAMER,21,203,50,14
+    PUSHBUTTON      "Line Map",IDC_STRM_VTK_LINEMAP,83,203,50,14
+    PUSHBUTTON      "Lapl",IDC_STRM_VIEW_LAPLACIAN,201,159,30,14
+    PUSHBUTTON      "save 3D lic to vtk",IDC_STRM_VTK_STREAMER_LIC,21,224,64,
+                    14
+    PUSHBUTTON      "arrows 3D",IDC_STRM_VTK_ARROWS3D,91,225,50,14
+    PUSHBUTTON      "Seeded",IDC_STRM_TXT_SEED,235,159,30,14,WS_DISABLED
+END
+
+IDD_STRM_ZOOM DIALOGEX 0, 0, 186, 89
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Zoom"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,68,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,67,68,50,14
+    LTEXT           "Select a zoom area by clicking and dragging the mouse over the displayed image, from top left to bottom right.",
+                    IDC_STATIC,61,14,111,35
+    ICON            IDI_ZOOM_ICON,IDC_STATIC,20,16,21,20,0,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_STR_ZOOM_TEXT,61,50,111,12,ES_READONLY | NOT 
+                    WS_BORDER
+END
+
+IDD_RESTORATION DIALOG DISCARDABLE  0, 0, 405, 249
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "MRI Restoration"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Close",IDCANCEL,315,212,50,14
+    ICON            IDI_ICACUK,IDC_STATIC,262,208,20,20
+    PUSHBUTTON      "Vortex",IDC_RESTOR_3DVORTEX,19,28,36,14
+    PUSHBUTTON      "Load cfd...",IDC_RESTOR_3DLOAD,19,48,45,14
+    EDITTEXT        IDC_RESTOR_3DVRANGE,65,28,22,14,ES_AUTOHSCROLL
+    RTEXT           "r:",IDC_STATIC,55,33,8,8
+    PUSHBUTTON      "Restore",IDC_RESTOR_3DGO,224,158,54,14
+    PUSHBUTTON      "Streamlines...",IDC_RESTOR_3DVIS_RESTORED,283,158,50,14,
+                    WS_DISABLED
+    PUSHBUTTON      "Streamlines...",IDC_RESTOR_3DVIS_DATA,68,68,53,14
+    EDITTEXT        IDC_RESTOR_3D_RESTORED_SLICE,55,156,32,14,ES_AUTOHSCROLL
+    RTEXT           "(ROI start) slice no.",IDC_STATIC,19,154,34,16
+    PUSHBUTTON      "Add noise",IDC_RESTOR_3D_NOISE_GO,222,53,50,14
+    EDITTEXT        IDC_RESTOR_3DNOISE_S2,230,32,19,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_RESTOR_3DNOISE_M2,260,32,19,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_RESTOR_3DNOISE_V2,290,32,19,14,ES_AUTOHSCROLL
+    RTEXT           "s",IDC_STATIC,219,37,8,8
+    RTEXT           "m",IDC_STATIC,250,37,8,8
+    RTEXT           "v",IDC_STATIC,280,37,8,8
+    PUSHBUTTON      "Streamlines...",IDC_RESTOR_3DVIS_NOISY,277,53,50,14,
+                    WS_DISABLED
+    EDITTEXT        IDC_3DRESTOR_LAMBDA,229,127,19,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_3DRESTOR_DELTAT,259,127,19,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_3DRESTOR_ITERATIONS,289,127,30,14,ES_AUTOHSCROLL
+    RTEXT           "lm",IDC_STATIC,219,132,8,8
+    RTEXT           "dt",IDC_STATIC,249,132,8,8
+    RTEXT           "its",IDC_STATIC,279,132,8,8
+    EDITTEXT        IDC_3DRESTOR_SIGMA,331,127,19,14,ES_AUTOHSCROLL
+    RTEXT           "sg",IDC_STATIC,321,132,8,8
+    EDITTEXT        IDC_3DRESTOR_MINLAMBDA_DIFF,363,127,19,14,ES_AUTOHSCROLL
+    RTEXT           "md",IDC_STATIC,353,132,10,8
+    CONTROL         "fix",IDC_RESTOR3D_LAMBDA_FIX,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,225,143,23,10
+    PUSHBUTTON      "Select ROI...",IDC_RESTOR_3D_ROI,26,121,54,14
+    EDITTEXT        IDC_3DRESTOR_ROI_TEXT,87,124,96,12,ES_READONLY | 
+                    ES_NUMBER | NOT WS_BORDER
+    LTEXT           "slice no. below",IDC_STATIC,29,136,48,8
+    EDITTEXT        IDC_RESTOR_3D_RESTORED_RANGE,151,156,32,14,
+                    ES_AUTOHSCROLL
+    CTEXT           "<--> ROI end slice",IDC_STATIC,88,160,60,8
+    EDITTEXT        IDC_RESTOR_3DNOISE_SLICES,99,28,19,14,ES_AUTOHSCROLL
+    RTEXT           "s:",IDC_STATIC,90,33,8,8
+    PUSHBUTTON      "Load 2D...",IDC_RESTOR_3DLOAD2,72,48,45,14
+    CTEXT           "Static",IDC_RESTOR3D_IMGSIZES,19,176,164,8
+    LTEXT           "zoom:",IDC_STATIC,18,196,20,8
+    EDITTEXT        IDC_RESTOR3D_ZOOM_SCALE,39,191,39,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Find Vortex",IDC_RESTOR_FIND_VORTEX,338,158,50,14,
+                    WS_DISABLED
+    PUSHBUTTON      "Find Vortex...",IDC_RESTOR_3DVIS_DATA2,129,68,50,14
+    PUSHBUTTON      "Find Vortex...",IDC_RESTOR_3DVIS_NOISYDATA,332,53,50,14,
+                    WS_DISABLED
+    GROUPBOX        "Data Access",IDC_STATIC,7,7,191,89
+    GROUPBOX        "Region of Interest (ROI)",IDC_STATIC,7,103,191,113
+    GROUPBOX        "Noise Generation",IDC_STATIC,207,7,191,89
+    GROUPBOX        "Restoration",IDC_STATIC,207,103,191,89
+    PUSHBUTTON      "Load Heart CFD...",IDC_RESTOR_3D_HEART_LOAD,125,48,65,
+                    14
+    PUSHBUTTON      "Batch Job",IDC_BUTTON1,19,68,45,14
+    PUSHBUTTON      "CCFD Preset",IDC_RESTOR_CCFD_ROI_PRESET,84,190,50,14
+    CONTROL         "zero skip",IDC_RESTOR_ZERO_SKIP,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,139,193,44,10
+    PUSHBUTTON      "Load 7D...",IDC_RESTOR_7DLOAD,145,28,45,14
+END
+
+IDD_REST_ROI DIALOG DISCARDABLE  0, 0, 186, 115
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Select Region of Interest"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "->",IDC_ROI_BOOL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    11,75,22,10
+    EDITTEXT        IDC_ROI_TX,36,73,26,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ROI_TY,70,73,26,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ROI_BX,110,73,26,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ROI_BY,144,73,26,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,7,94,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,68,94,50,14
+    LTEXT           "Select the ROI area by clicking and dragging the mouse over the displayed image, from top left to bottom right.",
+                    IDC_STATIC,29,13,132,28
+    LTEXT           "",IDC_ROI_COORDS,29,50,118,8
+    LTEXT           ",",IDC_STATIC,63,76,6,8
+    LTEXT           ",",IDC_STATIC,137,76,6,8
+    LTEXT           "->",IDC_STATIC,99,76,8,8
+    PUSHBUTTON      "Whole Data",ID_ROI_WHOLE,129,94,50,14
+END
+
+IDD_GL_RENDER DIALOG DISCARDABLE  0, 0, 348, 345
+STYLE WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Render"
+FONT 8, "MS Sans Serif"
+BEGIN
+END
+
+IDD_ZOOMED_RESLICE DIALOG DISCARDABLE  0, 0, 186, 123
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Zoomed Slice"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,38,101,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,97,101,50,14
+    LTEXT           "Please select a zoomed slice:",IDC_STATIC,44,22,94,8
+    CTEXT           "Static",IDC_ZOOMED_SLICE_IMGSIZE,7,9,166,8
+    CONTROL         "s",IDC_ZOOMED_S,"Button",BS_AUTORADIOBUTTON,59,50,19,10
+    CONTROL         "x",IDC_ZOOMED_X,"Button",BS_AUTORADIOBUTTON,59,63,19,10
+    CONTROL         "y",IDC_ZOOMED_Y,"Button",BS_AUTORADIOBUTTON,59,78,19,10
+    EDITTEXT        IDC_ZOOM_ZCOORD,83,47,27,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ZOOM_XCOORD,83,62,27,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ZOOM_YCOORD,83,76,27,12,ES_AUTOHSCROLL
+    CONTROL         "3D LIC",IDC_ZOOMED_3D,"Button",BS_AUTORADIOBUTTON,59,35,
+                    38,10
+END
+
+IDD_FINDVORTEX DIALOG DISCARDABLE  0, 0, 546, 393
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Find Vortex"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_VORTEX_3DVRANGE,63,36,22,14,ES_AUTOHSCROLL
+    RTEXT           "s",IDC_STATIC,87,41,8,8
+    RTEXT           "px",IDC_STATIC,125,41,8,8
+    DEFPUSHBUTTON   "Close",IDCANCEL,245,372,50,14
+    PUSHBUTTON      "Load cfd...",IDC_VORTEX_3DLOAD,17,18,45,14
+    PUSHBUTTON      "Load data...",IDC_VORTEX_DATALOAD,69,18,45,14
+    LTEXT           "Static",IDC_STATIC_IMAGEINFO,17,70,151,8
+    LTEXT           "Magnitude plot",IDC_STATIC,24,108,48,8
+    PUSHBUTTON      "Go",IDC_VORTEX_VELMAGN,91,102,31,14,WS_DISABLED
+    PUSHBUTTON      "View",IDC_VORTEX_VELMAGN_VIEW,125,102,31,14,WS_DISABLED
+    LTEXT           "Max. magnitude threshold:",IDC_STATIC,24,132,84,8
+    EDITTEXT        IDC_FINDVORTEX_VELMAGN_THRES,116,129,40,14,
+                    ES_AUTOHSCROLL | WS_DISABLED
+    PUSHBUTTON      "Go",IDC_VORTEX_VELMAGN_THRES,90,148,31,14,WS_DISABLED
+    PUSHBUTTON      "View",IDC_VORTEX_VELMAGN_VIEW_THRES,124,148,31,14,
+                    WS_DISABLED
+    GROUPBOX        "Velocity Magnitude",IDC_STATIC,7,86,172,90
+    GROUPBOX        "Eigenvalue Analysis",IDC_STATIC,187,6,172,170
+    LTEXT           "Gradient Eigenvalues",IDC_STATIC,204,25,68,8
+    PUSHBUTTON      "Go",IDC_VORTEX_GRADMAT_GO,281,20,31,14,WS_DISABLED
+    PUSHBUTTON      "View",IDC_VORTEX_VORTEX_GRADMAT_VIEW,315,20,31,14,
+                    WS_DISABLED
+    LTEXT           "Eigenvalue 1",IDC_STATIC,209,62,42,8
+    LTEXT           "At position [click on View image for values]",
+                    IDC_VORTEX_ATPOSITION,204,42,142,8
+    LTEXT           "Eigenvalue 2",IDC_STATIC,209,77,42,8
+    LTEXT           "Eigenvalue 3",IDC_STATIC,209,92,42,8
+    LTEXT           "Static",IDC_VORTEX_EIG1,263,62,80,8
+    LTEXT           "Static",IDC_VORTEX_EIG2,263,77,80,8
+    LTEXT           "Static",IDC_VORTEX_EIG3,263,92,80,8
+    CTEXT           "dudx",IDC_VORTEX_DUDX,217,110,31,8
+    CTEXT           "dvdx",IDC_VORTEX_DUDX2,217,122,31,8
+    CTEXT           "dwdx",IDC_VORTEX_DUDX3,217,134,31,8
+    CTEXT           "dudy",IDC_VORTEX_DUDX4,259,110,31,8
+    CTEXT           "dwdz",IDC_VORTEX_DUDX5,299,134,31,8
+    CTEXT           "dvdy",IDC_VORTEX_DUDX6,259,122,31,8
+    CTEXT           "dvdz",IDC_VORTEX_DUDX7,299,122,31,8
+    CTEXT           "dwdy",IDC_VORTEX_DUDX8,259,134,31,8
+    CTEXT           "dudz",IDC_VORTEX_DUDX9,299,110,31,8
+    PUSHBUTTON      "Vortex",IDC_VORTEX_3DVORTEX,17,36,36,14
+    RTEXT           "r:",IDC_STATIC,53,40,8,8
+    EDITTEXT        IDC_VORTEX_3DNOISE_SLICES,97,36,19,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "View eig. real",IDC_VORTEX_VIEW_REAL,209,151,50,14,
+                    WS_DISABLED
+    PUSHBUTTON      "View eig. imag",IDC_VORTEX_VIEW_IMAG,265,151,50,14,
+                    WS_DISABLED
+    LTEXT           "flip direction:",IDC_STATIC,21,57,40,8
+    PUSHBUTTON      "u",IDC_VORTEX_FLIPU,65,55,12,12,WS_DISABLED
+    PUSHBUTTON      "v",IDC_VORTEX_FLIPV,101,55,12,12,WS_DISABLED
+    PUSHBUTTON      "w",IDC_VORTEX_FLIPW,137,54,12,12,WS_DISABLED
+    LTEXT           "^",IDC_VORTEX_FLIPPEDU,80,58,8,8,WS_DISABLED
+    LTEXT           "^",IDC_VORTEX_FLIPPEDv,116,58,8,8,WS_DISABLED
+    LTEXT           "^",IDC_VORTEX_FLIPPEDw,152,58,8,8,WS_DISABLED
+    GROUPBOX        "Winding Number (2D)",IDC_STATIC,367,7,172,103
+    PUSHBUTTON      "Select Slice...",IDC_VORTEX_WN_SLICE,382,30,57,14,
+                    WS_DISABLED
+    PUSHBUTTON      "Go",IDC_VORTEX_WN_GO,461,57,31,14,WS_DISABLED
+    PUSHBUTTON      "View",IDC_VORTEX_WN_VIEW,495,57,31,14,WS_DISABLED
+    EDITTEXT        IDC_VORTEX_CIRCLERAD,428,58,25,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "circle radius:",IDC_STATIC,384,63,40,8
+    EDITTEXT        IDC_VORTEX_CINDEX_TOL,428,79,25,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "tolerance:",IDC_STATIC,392,84,32,8
+    PUSHBUTTON      "View tolerance",IDC_VORTEX_VIEW_TOLERANCE,461,79,56,14,
+                    WS_DISABLED
+    GROUPBOX        "Vorticity aka Curl",IDC_STATIC,367,117,172,59
+    PUSHBUTTON      "Go",IDC_VORTEX_VORTICITY_GO,375,134,31,14,WS_DISABLED
+    PUSHBUTTON      "View Magnitude",IDC_VORTEX_VORTICITY_VIEW,375,153,67,14,
+                    WS_DISABLED
+    LTEXT           "x",IDC_STATIC,455,128,8,8
+    LTEXT           "y",IDC_STATIC,455,143,8,8
+    LTEXT           "z",IDC_STATIC,455,158,8,8
+    LTEXT           "x",IDC_VORTEX_VORTICITY_X,467,128,62,8
+    LTEXT           "y",IDC_VORTEX_VORTICITY_Y,467,143,62,8
+    LTEXT           "z",IDC_VORTEX_VORTICITY_Z,467,158,62,8
+    GROUPBOX        "Lambda Definition",IDC_STATIC,7,186,172,170
+    LTEXT           "Asymmetric Components",IDC_STATIC,24,205,78,8
+    PUSHBUTTON      "Go",IDC_VORTEX_LAMBDA_GO,104,200,31,14,WS_DISABLED
+    PUSHBUTTON      "View",IDC_VORTEX_LAMBDA_VIEW,138,200,31,14,WS_DISABLED
+    LTEXT           "Eigenvalue 1",IDC_STATIC,29,242,42,8
+    LTEXT           "At position [click on View image for values]",
+                    IDC_VORTEX_LAMBDA_ATPOSITION,24,222,142,8
+    LTEXT           "Eigenvalue 2",IDC_STATIC,29,257,42,8
+    LTEXT           "Eigenvalue 3",IDC_STATIC,29,272,42,8
+    LTEXT           "Static",IDC_VORTEX_LAMBDA_EIG1,83,242,80,8
+    LTEXT           "Static",IDC_VORTEX_LAMBDA_EIG2,83,257,80,8
+    LTEXT           "Static",IDC_VORTEX_LAMBDA_EIG3,83,272,80,8
+    CTEXT           "dudx",IDC_VORTEX_LAMBDA_DUDX,37,290,31,8
+    CTEXT           "dvdx",IDC_VORTEX_LAMBDA_DVDX,37,302,31,8
+    CTEXT           "dwdx",IDC_VORTEX_LAMBDA_DWDX,37,314,31,8
+    CTEXT           "dudy",IDC_VORTEX_LAMBDA_DUDY,79,290,31,8
+    CTEXT           "dwdz",IDC_VORTEX_LAMBDA_DWDZ,119,314,31,8
+    CTEXT           "dvdy",IDC_VORTEX_LAMBDA_DVDY,79,302,31,8
+    CTEXT           "dvdz",IDC_VORTEX_LAMBDA_DVDZ,119,302,31,8
+    CTEXT           "dwdy",IDC_VORTEX_LAMBDA_DWDY,79,314,31,8
+    CTEXT           "dudz",IDC_VORTEX_LAMBDA_DUDZ,119,290,31,8
+    PUSHBUTTON      "View Negative Lambda",IDC_VORTEX_LAMBDA_VIEW_NEGATIVE,
+                    47,334,93,14,WS_DISABLED
+    GROUPBOX        "Seed Mask",IDC_STATIC,187,186,172,170
+    LTEXT           "Plot",IDC_STATIC,207,199,13,8
+    LTEXT           "Threshold",IDC_STATIC,273,199,32,8
+    CONTROL         "Vorticity",IDC_VORTEX_STRM_VORTICITY,"Button",
+                    BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,203,217,41,10
+    EDITTEXT        IDC_VORTEX_VORTICITY_THRES,273,212,40,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    PUSHBUTTON      "View Streamline",IDC_VORTEX_STRM_VIEW,365,214,62,14,
+                    WS_DISABLED
+    CONTROL         "Magnitude",IDC_VORTEX_STRM_MAGN,"Button",
+                    BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,203,233,49,10
+    EDITTEXT        IDC_VORTEX_MAGN_THRES,273,227,40,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    CONTROL         "Eig. Imag.",IDC_VORTEX_STRM_EIGIMAG,"Button",
+                    BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,203,249,47,10
+    EDITTEXT        IDC_VORTEX_STRM_EIGIMAG_THRES,273,247,40,14,
+                    ES_AUTOHSCROLL | WS_DISABLED
+    PUSHBUTTON      "save vtk volume",IDC_VORTEX_VTK_VIEW,365,194,62,14,
+                    WS_DISABLED
+    CONTROL         "Position",IDC_VORTEX_STRM_POSITION,"Button",
+                    BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,203,287,41,10
+    EDITTEXT        IDC_VORTEX_STRM_EIGIMAG_POS_X,273,284,24,14,
+                    ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_VORTEX_STRM_EIGIMAG_POS_Y,299,284,24,14,
+                    ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_VORTEX_STRM_EIGIMAG_POS_Z,325,284,24,14,
+                    ES_AUTOHSCROLL | WS_DISABLED
+    CONTROL         "",IDC_STRM_VORTICITY_VALID,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,253,217,16,10
+    CONTROL         "",IDC_VORTEX_STRM_MAGN_VALID,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,253,233,16,10
+    CONTROL         "",IDC_VORTEX_STRM_EIGIMAG_VALID,"Button",
+                    BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,253,249,16,10
+    PUSHBUTTON      "save sel vectors",IDC_VORTEX_VTK_ARROWS,433,194,56,14
+    CONTROL         "Lambda",IDC_VORTEX_STRM_LAMBDA,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,203,268,41,10
+    CONTROL         "negative",IDC_VORTEX_STRM_LAMBDA_VALID,"Button",
+                    BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,253,268,52,10
+    CONTROL         "WN (2D)",IDC_VORTEX_STRM_WN,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,299,336,44,10
+    PUSHBUTTON      "View Mask",IDC_VORTEX_STRM_VIEW_MASK,433,214,49,14,
+                    WS_DISABLED
+    PUSHBUTTON      "Tracking",IDC_FINDVORTEX_TRACKING,461,245,50,14,NOT 
+                    WS_VISIBLE | WS_DISABLED
+    PUSHBUTTON      "save vtk arrows",IDC_VORTEX_VTK_SAVE_ARROWS,365,234,62,
+                    14
+    CONTROL         "Vectors",IDC_STRM_VORTICITY_VECTOR,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,316,215,40,10
+    GROUPBOX        "LMS Fit",IDC_STATIC,367,258,172,98
+    CONTROL         "compute all velocity gradients with LMS fit",
+                    IDC_LMS_USE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,380,
+                    276,147,10
+    LTEXT           "region size: ",IDC_STATIC,379,300,38,8
+    EDITTEXT        IDC_LMS_SIZE,421,296,19,14,ES_AUTOHSCROLL
+    LTEXT           "pixels",IDC_STATIC,449,300,24,8
+    PUSHBUTTON      "View Positions",IDC_LMS_POS,378,321,59,14,WS_DISABLED
+    PUSHBUTTON      "View Distances",IDC_LMS_DISTS,445,321,59,14,WS_DISABLED
+    LTEXT           "LMS",IDC_STATIC,203,320,16,8
+    CONTROL         "Positions",IDC_LMS_VTK_POSITIONS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,225,318,44,10
+    CONTROL         "Distances",IDC_LMS_VTK_DISTANCES,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,275,318,47,10
+    PUSHBUTTON      "save data",IDC_VORTEX_SAVEDATA,488,234,45,14
+    EDITTEXT        IDC_VORTEX_3DNOISE_PIXELS,135,36,19,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "More Vtx...",IDC_MORE_VTX,488,214,45,14
+    CONTROL         "Region Critical Points",IDC_VORTEX_REGION_CRPOINTS,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,203,336,83,10
+    PUSHBUTTON      "save 3D",IDC_VORTEX_SAVEDATA3D,496,194,37,14
+    PUSHBUTTON      "DICOM",IDC_FINDVORTEX_DICOM,433,234,50,14
+    CONTROL         "Streamlines",IDC_VTX_SEED_STRM,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,203,303,52,10
+END
+
+IDD_VOL_VIEW DIALOG DISCARDABLE  0, 0, 178, 188
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Volume Viewer"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_S_SEL,73,79,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_X_SEL,73,27,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_Y_SEL,73,53,40,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   ">",IDC_S_PLUS,123,79,15,14
+    PUSHBUTTON      ">",IDC_X_PLUS,123,27,15,14
+    PUSHBUTTON      ">",IDC_Y_PLUS,123,53,15,14
+    PUSHBUTTON      "<",IDC_S_MINUS,48,79,15,14
+    PUSHBUTTON      "<",IDC_X_MINUS,48,27,15,14
+    PUSHBUTTON      "<",IDC_Y_MINUS,48,53,15,14
+    LTEXT           "S",IDC_STATIC,25,82,8,8
+    LTEXT           "X",IDC_STATIC,25,31,8,8
+    LTEXT           "Y",IDC_STATIC,25,56,8,8
+    CTEXT           "Static",IDC_STATIC_IMGINFO,29,103,120,8
+    PUSHBUTTON      "Close",IDCANCEL,121,167,50,14
+    CTEXT           "Static",IDC_STATIC_VOXVAL,7,116,164,8
+    CTEXT           "Static",IDC_STATIC_VOLTITLE,7,10,164,8
+    PUSHBUTTON      "Select Window",IDC_VOLVIEW_SELECT,7,167,53,14
+    PUSHBUTTON      "Save...",IDC_VOLVIEW_SAVE,71,167,40,14
+    EDITTEXT        IDC_VOLVIEW_MULTIPLIER,99,130,40,14,ES_AUTOHSCROLL
+    LTEXT           "Intensity multiplier",IDC_STATIC,35,134,56,8
+    CTEXT           "Static",IDC_VOLVIEW_MINMAX,7,150,164,8
+END
+
+IDD_VORTEX_VTK DIALOG DISCARDABLE  0, 0, 186, 185
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Vortex VTK"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Close",IDCANCEL,109,164,50,14
+    PUSHBUTTON      "Go",IDC_VORTEX_VTK_GO,38,164,50,14
+END
+
+IDD_VTX_TRACKING DIALOG DISCARDABLE  0, 0, 366, 164
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Vortex Tracking"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Close",IDOK,65,130,50,14
+    GROUPBOX        "Vortex Tracking from FlowVis",IDC_STATIC,7,7,172,108
+    PUSHBUTTON      "Go",IDC_FINDVORTEX_FLOWVIS_TRACKING,121,30,50,14
+    LTEXT           "Algorithm loads test.txt from current directory, eliminates rejected vortices and saves tracked vortices to tracked.txt.",
+                    IDC_STATIC,17,56,139,27
+    LTEXT           "loaded vortices",IDC_TRACKING_LOADED,18,86,128,8
+    LTEXT           "tracked vortices",IDC_TRACKING_TRACKED,18,99,132,8
+    LTEXT           "space radius",IDC_STATIC,17,25,41,8
+    LTEXT           "time radius",IDC_STATIC,17,40,34,8
+    EDITTEXT        IDC_TRACKING_SPACERAD,65,20,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TRACKING_TIMERAD,65,38,40,14,ES_AUTOHSCROLL
+    GROUPBOX        "Vortex Condensation from FlowVis",IDC_STATIC,187,7,172,
+                    150
+    PUSHBUTTON      "Go",IDC_CONDENSATION_GO,273,95,50,14
+    EDITTEXT        IDC_DENSE_MEAN,247,28,40,14,ES_AUTOHSCROLL
+    LTEXT           "mean",IDC_STATIC,221,33,18,8
+    EDITTEXT        IDC_DENSE_SCALING,247,50,40,14,ES_AUTOHSCROLL
+    LTEXT           "scaling",IDC_STATIC,221,55,23,8
+    EDITTEXT        IDC_DENSE_SIGMA,247,71,40,14,ES_AUTOHSCROLL
+    LTEXT           "sigma",IDC_STATIC,221,77,19,8
+    LTEXT           "result:",IDC_STATIC,203,122,20,8
+    LTEXT           "x",IDC_STATIC,231,122,8,8
+    LTEXT           "x",IDC_STATIC_DENSE_X,243,122,58,8
+    LTEXT           "y",IDC_STATIC,231,135,8,8
+    LTEXT           "y",IDC_STATIC_DENSE_Y,243,135,58,8
+END
+
+IDD_VTK_SAVE_ARROWS DIALOG DISCARDABLE  0, 0, 186, 145
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Save Vtk Arrows"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,38,113,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,97,113,50,14
+    LTEXT           "Please select a slice:",IDC_STATIC,44,22,67,8
+    CTEXT           "Static",IDC_SAVE_VTK_ARROWS_IMGSIZE,7,9,166,8
+    EDITTEXT        IDC_SAVE_VTK_ARROWS_ZCOORD,83,47,27,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SAVE_VTK_ARROWS_XCOORD,83,62,27,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SAVE_VTK_ARROWS_YCOORD,83,76,27,12,ES_AUTOHSCROLL
+    CONTROL         "Whole Data",IDC_SAVE_VTK_ARROWS_3D,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,59,34,54,10
+    CONTROL         "s",IDC_SAVE_VTK_ARROWS_S,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,59,48,19,10
+    CONTROL         "x",IDC_SAVE_VTK_ARROWS_X,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,59,62,19,10
+    CONTROL         "y",IDC_SAVE_VTK_ARROWS_Y,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,59,76,19,10
+    CONTROL         "Heart CFD Preset",IDC_SAVE_VTK_ARROWS_HCFD,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,59,91,71,10
+END
+
+IDD_VTX_MORE DIALOG DISCARDABLE  0, 0, 457, 271
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "More Vtx"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Cancel",IDCANCEL,153,249,50,14
+    PUSHBUTTON      "Go",IDC_REGIONS_GO,32,30,50,14
+    GROUPBOX        "Abstraction - Region Growing",IDC_STATIC,7,7,166,226
+    PUSHBUTTON      "Save Arrows",IDC_REGION_SAVE_ARROWS,32,110,50,14,
+                    WS_DISABLED
+    PUSHBUTTON      "Seed CrPoints",IDC_REGIONS_SAVE_POINTS,96,110,50,14,
+                    WS_DISABLED
+    EDITTEXT        IDC_REGIONS_COMPRESSION,113,59,27,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_REGIONS_CLUSTERS,113,81,27,14,ES_AUTOHSCROLL
+    CONTROL         "Compression",IDC_REGIONS_COMPRESSION_SELECT,"Button",
+                    BS_AUTORADIOBUTTON,38,62,61,8
+    CONTROL         "Clusters",IDC_REGIONS_CLUSTERS_SELECT,"Button",
+                    BS_AUTORADIOBUTTON,38,84,49,8
+    PUSHBUTTON      "View Clusters",IDC_REGION_VIEW_CLUSTERS,32,133,50,14,
+                    WS_DISABLED
+    PUSHBUTTON      "View bin file...",IDC_VTXMORE_VIEWBIN,185,34,53,14
+    GROUPBOX        "Bin Data Analysis",IDC_STATIC,178,7,68,61
+    PUSHBUTTON      "Batch Job...",IDC_BUTTON1,65,249,50,14
+    PUSHBUTTON      "Save Velocity",IDC_REGIONS_SAVE_VELOCITY,96,133,50,14,
+                    WS_DISABLED
+    PUSHBUTTON      "Save Clusters",IDC_REGION_SAVE_CLUSTERS,32,156,50,14,
+                    WS_DISABLED
+    PUSHBUTTON      "Load Clusters",IDC_REGIONS_LOAD_CLUSTERS,96,156,50,14
+    CTEXT           "Static",IDC_VTX_MORE_LOADED,10,204,158,8
+    PUSHBUTTON      "Seed Distance",IDC_REGIONS_SAVE_LMSDIST,31,180,50,14
+    GROUPBOX        "Matlab Data Access",IDC_STATIC,253,7,196,61
+    PUSHBUTTON      "Save Velocity",IDC_REGIONS_SAVE_MATLAB_VEL,263,27,50,14
+    PUSHBUTTON      "Save Original",IDC_REGIONS_SAVE_MATLAB_ORIGINAL,263,45,
+                    50,14
+    PUSHBUTTON      "Load Streams",IDC_REGIONS_LOAD_STRM,325,27,50,14
+    PUSHBUTTON      "Save Seeds",IDC_REGION_SAVE_SEEDS,325,45,50,14
+    GROUPBOX        "Streamline Cross-Correlation",IDC_STATIC,178,74,272,108
+    PUSHBUTTON      "Streamlines...",IDC_REGIONS_STREAMLINES,202,88,50,14
+    CTEXT           "streamline",IDC_REGIONS_STRM_STATIC,195,127,127,8
+    CTEXT           "x-corr",IDC_REGIONS_XCORR_STATIC,195,147,127,8
+    PUSHBUTTON      "Render all",IDC_REGION_RENDER_ALL,202,160,50,14
+    PUSHBUTTON      "Render X-Corr",IDC_REGION_RENDER_XCORR,264,160,50,14
+    PUSHBUTTON      "X-Corr",IDC_REGIONS_XCORR_GO,264,88,50,14
+    EDITTEXT        IDC_REGIONS_XLENGTH_THRES,233,108,17,14,ES_AUTOHSCROLL
+    RTEXT           "Max x-length:",IDC_STATIC,189,107,40,18
+    EDITTEXT        IDC_REGIONS_SIZE_THRES,287,108,17,14,ES_AUTOHSCROLL
+    CTEXT           "x-corr",IDC_REGIONS_XCORR_STATIC2,195,137,127,8
+    RTEXT           "Min c-length:",IDC_STATIC,253,107,30,18
+    EDITTEXT        IDC_REGIONS_MINCURL,359,92,27,14,ES_AUTOHSCROLL
+    RTEXT           "Min ave curl:",IDC_STATIC,321,92,33,18
+    PUSHBUTTON      "Render Curl",IDC_REGION_RENDER_CURL,391,92,50,14
+    EDITTEXT        IDC_REGIONS_MINMAGN,359,116,27,14,ES_AUTOHSCROLL
+    RTEXT           "Min ave magn:",IDC_STATIC,318,115,36,18
+    PUSHBUTTON      "Render Magn",IDC_REGION_RENDER_MAG,391,116,50,14
+    PUSHBUTTON      "Render Magn+Curl",IDC_REGION_RENDER_MAGN_CURL,376,138,
+                    65,14
+    PUSHBUTTON      "Save X-Corr",IDC_REGIONS_MATLAB_SAVE_XCORR,387,45,50,14
+    PUSHBUTTON      "Save X-Corr Vel",IDC_REGION_SAVE_VTK_XCORR_VEL,325,160,
+                    58,14
+    GROUPBOX        "Information Analysis",IDC_STATIC,178,188,272,44
+    PUSHBUTTON      "Information",IDC_REGIONS_CLUSTER_INFORMATION,202,204,50,
+                    14
+    LTEXT           "info",IDC_REGIONS_INFO_RESULT,261,200,181,8
+    LTEXT           "ranges",IDC_REGIONS_INFO_RANGES,261,213,114,8
+    PUSHBUTTON      "Batch",IDC_REGIONS_INFORMATION_BATCH_GO,381,212,50,14
+END
+
+IDD_RESTOR_LOAD7D DIALOG DISCARDABLE  0, 0, 186, 90
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Load 7D Data Options"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,41,69,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,99,69,50,14
+    LTEXT           "time frame (1-12):",IDC_STATIC,18,22,55,8
+    EDITTEXT        IDC_RESTOR_7D_TIME,81,18,40,14,ES_AUTOHSCROLL
+END
+
+IDD_FINDVORTEX_DICOM DIALOG DISCARDABLE  0, 0, 213, 162
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "DICOM Volume Rendering"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Close",IDCANCEL,80,141,50,14
+    GROUPBOX        "Data Save",IDC_STATIC,7,88,199,41
+    LTEXT           "Save Find Vortex seed mask and checked items above to a sequence of DICOM files.",
+                    IDC_STATIC,13,101,145,20
+    PUSHBUTTON      "Go...",IDC_DICOM_SAVE_GO,161,103,38,14
+    GROUPBOX        "Extra Seed Mask",IDC_STATIC,7,7,199,76
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO MOVEABLE PURE 
+BEGIN
+    IDD_THRES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 152
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 175
+    END
+
+    IDD_EDGEDET, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 183
+    END
+
+    IDD_TASKS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 312
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 266
+    END
+
+    IDD_CONTOUR_OPTS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 159
+    END
+
+    IDD_TMPL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 351
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 402
+    END
+
+    IDD_TEXTOUT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 120
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 164
+    END
+
+    IDD_HOUGH_OPTS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 157
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 164
+    END
+
+    IDD_ARCFIT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 274
+    END
+
+    IDD_FOURIER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 204
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 287
+    END
+
+    IDD_VOORHEES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 239
+    END
+
+    IDD_IFTW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 178
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 245
+    END
+
+    IDD_NOISEIMG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 156
+    END
+
+    IDD_STREAMLS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 359
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 259
+    END
+
+    IDD_STRM_ZOOM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 82
+    END
+
+    IDD_RESTORATION, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 398
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 242
+    END
+
+    IDD_REST_ROI, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 108
+    END
+
+    IDD_GL_RENDER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 341
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 338
+    END
+
+    IDD_ZOOMED_RESLICE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 115
+    END
+
+    IDD_FINDVORTEX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 539
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 386
+    END
+
+    IDD_VOL_VIEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 171
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 181
+    END
+
+    IDD_VORTEX_VTK, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 178
+    END
+
+    IDD_VTX_TRACKING, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 359
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 157
+    END
+
+    IDD_VTK_SAVE_ARROWS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 138
+    END
+
+    IDD_VTX_MORE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 450
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 264
+    END
+
+    IDD_RESTOR_LOAD7D, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 83
+    END
+
+    IDD_FINDVORTEX_DICOM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 206
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 155
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE MOVEABLE PURE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE MOVEABLE PURE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE MOVEABLE PURE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif\r\n"
+    "#include ""res\\Texton.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#include ""afxprint.rc""       // printing/print preview resources\r\n"
+    "#endif\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.K.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif
+#include "res\Texton.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#include "afxprint.rc"       // printing/print preview resources
+#endif
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

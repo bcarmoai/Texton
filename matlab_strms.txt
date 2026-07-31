@@ -1,0 +1,51 @@
+clear all
+test
+wind_speed=sqrt(U.^2 + V.^2 + W.^2);
+W=smooth3(wind_speed);
+p = patch(isosurface(X, Y, Z, W,10));
+isonormals(X, Y, Z, W,p)
+set(p,'FaceColor','red','EdgeColor','none');
+daspect([1 1 1])
+[sx, sy, sz]=meshgrid(15:1:35,0:1:27,7:1:8);
+streamline(X, Y, Z, U, V, W, sx, sy, sz, 0.1)
+view(3); axis tight
+camlight 
+lighting gouraud
+rotate3d on
+alpha(.2)
+
+
+img sizes:
+35 27 78
+
+clear all
+test
+wind_speed=sqrt(U.^2 + V.^2 + W.^2);
+W=smooth3(wind_speed);
+p = patch(isosurface(X, Y, Z, W,10));
+isonormals(X, Y, Z, W,p)
+set(p,'FaceColor','red','EdgeColor','none');
+daspect([1 1 1])
+streamline(X, Y, Z, U, V, W, 12,13,11, 0.1)
+view(3); axis tight
+camlight 
+lighting gouraud
+rotate3d on
+alpha(.2)
+
+
+% vorticity
+clear all
+test
+vorticity=curl(X,Y,Z,U,V,W);
+W=smooth3(vorticity);
+p = patch(isosurface(X, Y, Z, W,5));
+isonormals(X, Y, Z, W,p)
+set(p,'FaceColor','red','EdgeColor','none');
+daspect([1 1 1])
+% streamline(X, Y, Z, U, V, W, 12,13,11, 0.1)
+view(3); axis tight
+camlight 
+lighting gouraud
+rotate3d on
+alpha(.2)

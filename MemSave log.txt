@@ -1,0 +1,41 @@
+156, 73 --> 189, 110 (33, 37)
+
+StartClustering D
+0 bytes in 0 Free Blocks.
+15386483 bytes in 193178 Normal Blocks.
+0 bytes in 0 CRT Blocks.
+0 bytes in 0 Ignore Blocks.
+0 bytes in 0 Client Blocks.
+Largest number used: 15519083 bytes.
+Total allocations: 75551327 bytes.
+
+- commented out MemSave calls in StartClustering()
+StartClustering D
+0 bytes in 0 Free Blocks.
+16153011 bytes in 198342 Normal Blocks.
+0 bytes in 0 CRT Blocks.
+0 bytes in 0 Ignore Blocks.
+0 bytes in 0 Client Blocks.
+Largest number used: 16262907 bytes.
+Total allocations: 75551327 bytes.
+
+- de-commented MemSave calls in StartClustering()
+- deleted matrix_a in ~CPlane()
+StartClustering D
+0 bytes in 0 Free Blocks.
+15806771 bytes in 176702 Normal Blocks.
+0 bytes in 0 CRT Blocks.
+0 bytes in 0 Ignore Blocks.
+0 bytes in 0 Client Blocks.
+Largest number used: 15916699 bytes.
+Total allocations: 75551327 bytes.
+
+- cleared memory leaks in CPlane::GetFitVel()
+StartClustering D
+0 bytes in 0 Free Blocks.
+408823 bytes in 22172 Normal Blocks.
+0 bytes in 0 CRT Blocks.
+0 bytes in 0 Ignore Blocks.
+0 bytes in 0 Client Blocks.
+Largest number used: 632811 bytes.
+Total allocations: 71298815 bytes.

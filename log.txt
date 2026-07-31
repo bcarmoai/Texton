@@ -1,0 +1,812 @@
+////	float short_norm_m = /* map -1800-1800 for Pauline */ (1750.0f+1750.0f)/(.5f);
+	// float short_norm_b = 5813.0f; we don't use b because we want zero of rescaled to match original zero
+
+
+sw135521849gb
+
+// 15/1/02
+// create test image, edge detect it and draw it onscreen
+void CMainFrame::OnButtonTest() 
+{
+
+	int width = 200;
+	int height = 150;
+
+	IplImage* img = iplCreateImageJaehne( IPL_DEPTH_8U, 200, 150 );
+
+	// convert 16u image to 8u
+	IplImage *clone = NULL, *img8u = NULL;
+	
+	/// Note we need not clone in the DEPTH_1U case
+	
+	if( NULL == (clone = iplCloneImage( img ))) return;
+	/// Since this moment we should take care about clone pointer
+	
+	/// Create header for the image to be drawn
+	img8u = iplCreateImageHeader(
+		img->nChannels,
+		img->alphaChannel,
+		IPL_DEPTH_8U,                          /// fixed 8u
+		(char*)img->colorModel, 
+		(char*)img->channelSeq, 
+		IPL_DATA_ORDER_PIXEL,                  /// fixed pixel
+		img->origin,
+		IPL_ALIGN_DWORD,
+		img->width, img->height, 
+		NULL, NULL, NULL, NULL );
+	
+	if( !img8u ) AfxMessageBox("Error in 16u to 8u converter.");
+	
+	iplAllocateImage( img8u, 0,0 );
+	if( !img8u->imageData ) AfxMessageBox("Error in 16u to 8u converter.");
+	
+	/// convert to 8u,plane image for viewing
+	if( IPL_DEPTH_1U == img->depth )
+		iplBitonalToGray( (IplImage*)img, img8u, 0,255 );
+	else if( IPL_DEPTH_8U != img->depth )
+		iplScale( img, img8u );
+	else
+		iplCopy( (IplImage*)img, img8u );
+	
+	if( IPL_StsOk != iplGetErrStatus()) AfxMessageBox("Error in 16u to 8u converter.");
+	
+
+	// create destination image
+	IplImage *edg = NULL;
+	COPY_IMAGE_HEADER( img8u, edg, IPL_DEPTH_16S );
+	iplAllocateImage( edg, 0,0 );
+	if( !edg ) return;
+
+	// do stuff to the original image
+	cvLaplace( img8u, edg);
+		
+	CTextonView* pTheView = (CTextonView*) GetActiveView();
+	pTheView->testImage.imgHeight = height;
+	pTheView->testImage.imgWidth = width;
+	pTheView->testImage.imgData = (int*)malloc(sizeof(int)*width*height);
+	
+	// copy ipl image to our buffer
+	for(int i=0; i<height; i++)
+		for(int j=0; j<width; j++)
+			pTheView->testImage.imgData[width*i+j]=edg->imageData[width*i+j];
+		
+	// display our buffer
+	pTheView->DrawTest();
+	
+	/// free memory
+	iplDeallocate( img, IPL_IMAGE_ALL );
+	iplDeallocate( img8u, IPL_IMAGE_ALL );
+	if( clone ) iplDeallocate( clone, IPL_IMAGE_HEADER );
+		
+}
+
+// 15/01/02
+// load and display a jpg image in separate window
+void CMainFrame::OnButtonTest() 
+{
+
+	int width = 200;
+	int height = 150;
+
+	IplImage* img = iplCreateImageJaehne( IPL_DEPTH_8U, 200, 150 );
+
+	// convert 16u image to 8u
+	IplImage *clone = NULL, *img8u = NULL;
+	
+	/// Note we need not clone in the DEPTH_1U case
+	
+	if( NULL == (clone = iplCloneImage( img ))) return;
+	/// Since this moment we should take care about clone pointer
+	
+	/// Create header for the image to be drawn
+	img8u = iplCreateImageHeader(
+		img->nChannels,
+		img->alphaChannel,
+		IPL_DEPTH_8U,                          /// fixed 8u
+		(char*)img->colorModel, 
+		(char*)img->channelSeq, 
+		IPL_DATA_ORDER_PIXEL,                  /// fixed pixel
+		img->origin,
+		IPL_ALIGN_DWORD,
+		img->width, img->height, 
+		NULL, NULL, NULL, NULL );
+	
+	if( !img8u ) AfxMessageBox("Error in 16u to 8u converter.");
+	
+	iplAllocateImage( img8u, 0,0 );
+	if( !img8u->imageData ) AfxMessageBox("Error in 16u to 8u converter.");
+	
+	/// convert to 8u,plane image for viewing
+	if( IPL_DEPTH_1U == img->depth )
+		iplBitonalToGray( (IplImage*)img, img8u, 0,255 );
+	else if( IPL_DEPTH_8U != img->depth )
+		iplScale( img, img8u );
+	else
+		iplCopy( (IplImage*)img, img8u );
+	
+	if( IPL_StsOk != iplGetErrStatus()) AfxMessageBox("Error in 16u to 8u converter.");
+	
+
+	// create destination image
+	IplImage *edg = NULL;
+	COPY_IMAGE_HEADER( img8u, edg, IPL_DEPTH_8U );
+	iplAllocateImage( edg, 0,0 );
+	if( !edg ) return;
+
+	// do stuff to the original image
+	cvCanny( img8u, edg, 1, 3, 3);
+		
+	CTextonView* pTheView = (CTextonView*) GetActiveView();
+	pTheView->testImage.imgHeight = height;
+	pTheView->testImage.imgWidth = width;
+	pTheView->testImage.imgData = (int*)malloc(sizeof(int)*width*height);
+	
+	// copy ipl image to our buffer
+	for(int i=0; i<height; i++)
+		for(int j=0; j<width; j++)
+			pTheView->testImage.imgData[width*i+j]=edg->imageData[width*i+j];
+		
+	// display our buffer
+	pTheView->DrawTest();
+
+	// do the jpg test
+	CImage anImage;
+	anImage.Load("C:\\Documents and Settings\\Bernard Carmo\\My Documents\\My Pictures\\bop2.jpg",8);
+	if(anImage.GetImage() != NULL)
+		aWnd.CreateWnd(this, "Edges", anImage.GetImage()->width, anImage.GetImage()->height, 24);
+	else
+		AfxMessageBox("Could not open image.");
+	aWnd.DrawIplImage(anImage.GetImage());
+
+	/// free memory
+	iplDeallocate( img, IPL_IMAGE_ALL );
+	iplDeallocate( img8u, IPL_IMAGE_ALL );
+	if( clone ) iplDeallocate( clone, IPL_IMAGE_HEADER );
+		
+}
+
+// 25/1/02
+deleted:
+c:\documents and settings\bernard carmo\my documents\phd\ipl\bin\cpuinf.dll
+
+// 17/10/02
+int CDlgStreamlines::TextureIteration(float* start, int alpha, float lapw)
+{
+	int n, x, y;
+	int newx, newy, prevx, prevy;
+	float vel_factor = m_VelDelta;
+
+	for(x=0; x<256; x++)
+		for(y=0; y<256; y++)
+		{
+			texture[256*y+x] = 0;
+
+			prevx = x;
+			prevy = y;
+
+			// positive side
+			for(n=1; n<=alpha; n++)
+			{
+				newx = prevx + FloatToInt(vel_factor*(float)mriData.u[256*prevy+prevx]);
+				newy = prevy + FloatToInt(vel_factor*(float)mriData.v[256*prevy+prevx]);
+				if(newx>255)newx=255;
+				if(newy>255)newy=255;
+				if(newx<0)newx=0;
+				if(newy<0)newy=0;
+
+				texture[256*y+x] = texture[256*y+x] + start[256*newy+newx];
+
+				prevx = newx;
+				prevy = newy;
+				
+			}
+
+			prevx = x;
+			prevy = y;
+
+			// negative side
+			for(n=1; n<=alpha; n++)
+			{
+				newx = prevx - FloatToInt(vel_factor*(float)mriData.u[256*prevy+prevx]);
+				newy = prevy - FloatToInt(vel_factor*(float)mriData.v[256*prevy+prevx]);
+				if(newx>255)newx=255;
+				if(newy>255)newy=255;
+				if(newx<0)newx=0;
+				if(newy<0)newy=0;
+
+				texture[256*y+x] = texture[256*y+x] + start[256*newy+newx];
+
+				prevx = newx;
+				prevy = newy;
+				
+			}
+
+			// zero tau part
+			texture[256*y+x] = texture[256*y+x] + start[256*y+x];
+				
+			// normalisation
+			texture[256*y+x] = texture[256*y+x]/(2.0f*(float)alpha+1.0f);
+		}
+
+	// take laplacian
+	float* text_lap = new float[256*256];
+	TextureLaplacian(text_lap);
+
+	for(x=0; x<256; x++)
+		for(y=0; y<256; y++)
+		{
+			texture[256*y+x] = texture[256*y+x] + lapw*text_lap[256*y+x];
+		}
+
+	delete text_lap;
+
+	return 0;
+}
+
+
+// 22/10/02 problems with interpolation
+
+// this works but nearest-neighbour intrpolation leaves a pixelised aspect
+void CDataMRI::Zoom(CPoint upperLeft, CPoint lowerRight)
+{
+
+	short buffer1;
+	short buffer2[4];
+	int x, y;
+
+	IplROI* roi = iplCreateROI(0, upperLeft.x, upperLeft.y, 
+		lowerRight.x-upperLeft.x, lowerRight.y-upperLeft.y);
+
+	// create iplsource image
+	IplImage *iplSource;
+	iplSource = iplCreateImageHeader(1,0,IPL_DEPTH_16U,"GRAY","GRAY", 
+		IPL_DATA_ORDER_PIXEL, IPL_ORIGIN_TL, IPL_ALIGN_DWORD,
+		img_width, img_height, roi, NULL, NULL, NULL );
+	if( !iplSource ) return;
+	iplAllocateImage( iplSource, 0, 0 );
+	if( !iplSource->imageData ) return;
+
+	// create ipl destination image
+	IplImage *iplDest;
+	iplDest = iplCreateImageHeader(1,0,IPL_DEPTH_16U,"GRAY","GRAY", 
+		IPL_DATA_ORDER_PIXEL, IPL_ORIGIN_TL, IPL_ALIGN_DWORD,
+		img_width, img_height, NULL, NULL, NULL, NULL );
+	if( !iplDest ) return;
+	iplAllocateImage( iplDest, 0, 0 );
+	if( !iplDest->imageData ) return;
+
+	//////////////////////////////////////////////////////
+	///  MRI data zoom
+	//////////////////////////////////////////////////////
+	
+	// copy texture to source
+	for(x=0;x<img_width;x++)
+		for(y=0;y<img_height;y++)
+		{
+			buffer1 = mr[img_width*y+x];
+			iplPutPixel(iplSource, x, y, (void*)&buffer1);
+		}
+	
+	// apply filter
+	iplZoomFit(iplSource, iplDest, IPL_INTER_NN);
+	
+	// copy image to array
+	for(x=0;x<img_width;x++)
+		for(y=0;y<img_height;y++)
+		{
+			iplGetPixel(iplDest, x, y, &buffer2);
+			mr[img_width*y+x] = buffer2[0];
+		}
+
+	//////////////////////////////////////////////////////
+	///  U data zoom
+	//////////////////////////////////////////////////////
+
+	// copy texture to source
+	for(x=0;x<img_width;x++)
+		for(y=0;y<img_height;y++)
+		{
+			buffer1 = u[img_width*y+x];
+			iplPutPixel(iplSource, x, y, (void*)&buffer1);
+		}
+	
+	// apply filter
+	iplZoomFit(iplSource, iplDest, IPL_INTER_CUBIC);
+	
+	// copy image to array
+	for(x=0;x<img_width;x++)
+		for(y=0;y<img_height;y++)
+		{
+			iplGetPixel(iplDest, x, y, &buffer2);
+			u[img_width*y+x] = buffer2[0];
+		}
+
+	//////////////////////////////////////////////////////
+	///  V data zoom
+	//////////////////////////////////////////////////////
+
+	// copy texture to source
+	for(x=0;x<img_width;x++)
+		for(y=0;y<img_height;y++)
+		{
+			buffer1 = v[img_width*y+x];
+			iplPutPixel(iplSource, x, y, (void*)&buffer1);
+		}
+	
+	// apply filter
+	iplZoomFit(iplSource, iplDest, IPL_INTER_NN);
+	
+	// copy image to array
+	for(x=0;x<img_width;x++)
+		for(y=0;y<img_height;y++)
+		{
+			iplGetPixel(iplDest, x, y, &buffer2);
+			v[img_width*y+x] = buffer2[0];
+		}
+
+
+	//////////////////////////////////////////////////////
+	///  W data zoom
+	//////////////////////////////////////////////////////
+
+	// copy texture to source
+	for(x=0;x<img_width;x++)
+		for(y=0;y<img_height;y++)
+		{
+			buffer1 = w[img_width*y+x];
+			iplPutPixel(iplSource, x, y, (void*)&buffer1);
+		}
+	
+	// apply filter
+	iplZoomFit(iplSource, iplDest, IPL_INTER_NN);
+	
+	// copy image to array
+	for(x=0;x<img_width;x++)
+		for(y=0;y<img_height;y++)
+		{
+			iplGetPixel(iplDest, x, y, &buffer2);
+			w[img_width*y+x] = buffer2[0];
+		}
+
+	iplDeallocateImage(iplSource);
+	iplDeallocateImage(iplDest);
+
+}
+
+// this works but also leaves a pixelised aspect
+void CDataMRI::Zoom(CPoint upperLeft, CPoint lowerRight)
+{
+
+	int sx = (int)abs(lowerRight.x-upperLeft.x);
+	int sy = (int)abs(lowerRight.y-upperLeft.y);
+	Cimage image; // usingIPL library by Qi Zhao at http://www.ifp.uiuc.edu/~qizhao
+	image.setSize(sy, sx);
+	image.setType(GRAY);
+	image.initialize();
+	Cimage* image2;
+
+	double xfactor = (256.0/abs(lowerRight.x-upperLeft.x))*100.0;
+	double yfactor = (256.0/abs(lowerRight.y-upperLeft.y))*100.0;
+
+	int newsx, newsy;
+	int x, y;
+
+	//////////////////////////////////////////////////////
+	///  MRI data zoom
+	//////////////////////////////////////////////////////
+	
+	// copy texture to image
+	for(x=0; x<sx; x++)
+		for(y=0; y<sy; y++)
+			image.R[sx*y+x] = mr[img_width*(y+upperLeft.y)+(x+upperLeft.x)];
+	
+	// apply resise
+	image2 = image.resize(yfactor,xfactor,SPLINE);
+	newsy=image2->getCol();
+	newsx=image2->getRow();
+	
+	// copy image to array
+	for(x=0;x<img_width;x++)
+		for(y=0;y<img_height;y++)
+		{
+			mr[img_width*y+x] = image2->R[newsx*y+x];
+		}
+
+	delete image2;
+
+	//////////////////////////////////////////////////////
+	///  U data zoom
+	//////////////////////////////////////////////////////
+	
+	// copy texture to image
+	for(x=0; x<sx; x++)
+		for(y=0; y<sy; y++)
+			image.R[sx*y+x] = u[img_width*(y+upperLeft.y)+(x+upperLeft.x)];
+	
+	// apply resise
+	image2 = image.resize(yfactor,xfactor,SPLINE);
+	newsy=image2->getCol();
+	newsx=image2->getRow();
+	
+	// copy image to array
+	for(x=0;x<img_width;x++)
+		for(y=0;y<img_height;y++)
+		{
+			u[img_width*y+x] = image2->R[newsx*y+x];
+		}
+
+	delete image2;
+
+	//////////////////////////////////////////////////////
+	///  V data zoom
+	//////////////////////////////////////////////////////
+	
+	// copy texture to image
+	for(x=0; x<sx; x++)
+		for(y=0; y<sy; y++)
+			image.R[sx*y+x] = v[img_width*(y+upperLeft.y)+(x+upperLeft.x)];
+	
+	// apply resise
+	image2 = image.resize(yfactor,xfactor,SPLINE);
+	newsy=image2->getCol();
+	newsx=image2->getRow();
+	
+	// copy image to array
+	for(x=0;x<img_width;x++)
+		for(y=0;y<img_height;y++)
+		{
+			v[img_width*y+x] = image2->R[newsx*y+x];
+		}
+
+	delete image2;
+
+	//////////////////////////////////////////////////////
+	///  W data zoom
+	//////////////////////////////////////////////////////
+	
+	// copy texture to image
+	for(x=0; x<sx; x++)
+		for(y=0; y<sy; y++)
+			image.R[sx*y+x] = w[img_width*(y+upperLeft.y)+(x+upperLeft.x)];
+	
+	// apply resise
+	image2 = image.resize(yfactor,xfactor,SPLINE);
+	newsy=image2->getCol();
+	newsx=image2->getRow();
+	
+	// copy image to array
+	for(x=0;x<img_width;x++)
+		for(y=0;y<img_height;y++)
+		{
+			w[img_width*y+x] = image2->R[newsx*y+x];
+		}
+
+	delete image2;
+
+	ZoomBlurAll();
+
+}
+
+// this works but the blur function is adding the weird black lines
+// just like iplZoom with CUBIC interpolation!
+void CDataMRI::Zoom(CPoint upperLeft, CPoint lowerRight)
+{
+
+	short buffer1;
+	short buffer2[4];
+	int x, y;
+
+	IplROI* roi = iplCreateROI(0, upperLeft.x, upperLeft.y, 
+		lowerRight.x-upperLeft.x, lowerRight.y-upperLeft.y);
+
+	// create iplsource image
+	IplImage *iplSource;
+	iplSource = iplCreateImageHeader(1,0,IPL_DEPTH_16U,"GRAY","GRAY", 
+		IPL_DATA_ORDER_PIXEL, IPL_ORIGIN_TL, IPL_ALIGN_DWORD,
+		img_width, img_height, roi, NULL, NULL, NULL );
+	if( !iplSource ) return;
+	iplAllocateImage( iplSource, 0, 0 );
+	if( !iplSource->imageData ) return;
+
+	// create ipl destination image
+	IplImage *iplDest;
+	iplDest = iplCreateImageHeader(1,0,IPL_DEPTH_16U,"GRAY","GRAY", 
+		IPL_DATA_ORDER_PIXEL, IPL_ORIGIN_TL, IPL_ALIGN_DWORD,
+		img_width, img_height, NULL, NULL, NULL, NULL );
+	if( !iplDest ) return;
+	iplAllocateImage( iplDest, 0, 0 );
+	if( !iplDest->imageData ) return;
+
+	// create ipl destination image
+	IplImage *iplDest2;
+	iplDest2 = iplCreateImageHeader(1,0,IPL_DEPTH_16U,"GRAY","GRAY", 
+		IPL_DATA_ORDER_PIXEL, IPL_ORIGIN_TL, IPL_ALIGN_DWORD,
+		img_width, img_height, NULL, NULL, NULL, NULL );
+	if( !iplDest2 ) return;
+	iplAllocateImage( iplDest2, 0, 0 );
+	if( !iplDest2->imageData ) return;
+
+	//////////////////////////////////////////////////////
+	///  MRI data zoom
+	//////////////////////////////////////////////////////
+	
+	// copy texture to source
+	for(x=0;x<img_width;x++)
+		for(y=0;y<img_height;y++)
+		{
+			buffer1 = mr[img_width*y+x];
+			iplPutPixel(iplSource, x, y, (void*)&buffer1);
+		}
+	
+	// apply filter
+	iplZoomFit(iplSource, iplDest, IPL_INTER_NN);
+	iplBlur(iplDest, iplDest2,3,3,1,1);
+	iplBlur(iplDest2, iplDest,3,3,1,1);
+	
+	// copy image to array
+	for(x=0;x<img_width;x++)
+		for(y=0;y<img_height;y++)
+		{
+			iplGetPixel(iplDest, x, y, &buffer2);
+			mr[img_width*y+x] = buffer2[0];
+		}
+
+	//////////////////////////////////////////////////////
+	///  U data zoom
+	//////////////////////////////////////////////////////
+
+	// copy texture to source
+	for(x=0;x<img_width;x++)
+		for(y=0;y<img_height;y++)
+		{
+			buffer1 = u[img_width*y+x];
+			iplPutPixel(iplSource, x, y, (void*)&buffer1);
+		}
+	
+	// apply filter
+	iplZoomFit(iplSource, iplDest, IPL_INTER_NN);
+	iplBlur(iplDest, iplDest2,3,3,1,1);
+	iplBlur(iplDest2, iplDest,3,3,1,1);
+	
+	// copy image to array
+	for(x=0;x<img_width;x++)
+		for(y=0;y<img_height;y++)
+		{
+			iplGetPixel(iplDest, x, y, &buffer2);
+			u[img_width*y+x] = buffer2[0];
+		}
+
+	//////////////////////////////////////////////////////
+	///  V data zoom
+	//////////////////////////////////////////////////////
+
+	// copy texture to source
+	for(x=0;x<img_width;x++)
+		for(y=0;y<img_height;y++)
+		{
+			buffer1 = v[img_width*y+x];
+			iplPutPixel(iplSource, x, y, (void*)&buffer1);
+		}
+	
+	// apply filter
+	iplZoomFit(iplSource, iplDest, IPL_INTER_NN);
+	iplBlur(iplDest, iplDest2,3,3,1,1);
+	iplBlur(iplDest2, iplDest,3,3,1,1);
+	
+	// copy image to array
+	for(x=0;x<img_width;x++)
+		for(y=0;y<img_height;y++)
+		{
+			iplGetPixel(iplDest, x, y, &buffer2);
+			v[img_width*y+x] = buffer2[0];
+		}
+
+
+	//////////////////////////////////////////////////////
+	///  W data zoom
+	//////////////////////////////////////////////////////
+
+	// copy texture to source
+	for(x=0;x<img_width;x++)
+		for(y=0;y<img_height;y++)
+		{
+			buffer1 = w[img_width*y+x];
+			iplPutPixel(iplSource, x, y, (void*)&buffer1);
+		}
+	
+	// apply filter
+	iplZoomFit(iplSource, iplDest, IPL_INTER_NN);
+	iplBlur(iplDest, iplDest2,3,3,1,1);
+	iplBlur(iplDest2, iplDest,3,3,1,1);
+	
+	// copy image to array
+	for(x=0;x<img_width;x++)
+		for(y=0;y<img_height;y++)
+		{
+			iplGetPixel(iplDest, x, y, &buffer2);
+			w[img_width*y+x] = buffer2[0];
+		}
+
+	iplDeallocateImage(iplSource);
+	iplDeallocateImage(iplDest);
+	iplDeallocateImage(iplDest2);
+
+}
+
+
+// 28/10/02
+void CDlgRestoration::Noise2D(float * img_data, int img_width, int img_height,
+							  int seed, float mean, float variance, int noiseBlur)
+{
+	if(img_width == 0 || img_height == 0)
+	{
+		AfxMessageBox("Load image first.");
+		return;
+	}
+
+	// create ipl source image and set it to zero
+	IplImage *nsImage;
+	nsImage = iplCreateImageHeader(1,0,IPL_DEPTH_16U,"GRAY","GRAY", 
+		IPL_DATA_ORDER_PIXEL, IPL_ORIGIN_TL, IPL_ALIGN_DWORD,
+		img_width, img_height, NULL, NULL, NULL, NULL );
+	if( !nsImage ) 
+	{
+		AfxMessageBox("Noise image allocation failed.");
+		return;
+	}
+	iplAllocateImage( nsImage, 1, 0 ); //allocate all to zeros
+	if( !nsImage->imageData ) 
+	{
+		AfxMessageBox("Noise image allocation failed.");
+		return;
+	}
+
+	// create noise image
+	IplNoiseParam noiseParam;
+	iplNoiseGaussianInit(&noiseParam, seed, FloatToInt(mean), FloatToInt(variance));
+	// we're multiplying then dividing by 100 so we will have 
+	iplNoiseImage(nsImage, &noiseParam);
+
+	short buffer[4];
+	int x, y;
+	for(x=0;x<img_width;x++)
+		for(y=0;y<img_height;y++)
+		{
+			iplGetPixel(nsImage, x, y, &buffer);
+			img_data[img_width*y+x] = ((float)buffer[0])-mean;
+		}
+
+	if(noiseBlur > 1)
+	{
+		float* dmy = new float[img_width*img_height];
+		BlurImage(img_data, dmy, noiseBlur);
+		BlurImage(dmy, img_data, noiseBlur);
+		/*	
+		for(x=0;x<img_width;x++)
+			for(y=0;y<img_height;y++)
+				noise_img[img_width*y+x] = dmy[img_width*y+x];
+		*/
+		delete dmy;
+	}
+
+}
+
+
+// 5/11/02
+void CDlgRestoration::OnRestor3dNoiseGo() 
+{
+	UpdateData(TRUE);
+
+	// generate noise
+	float* unoise_img = new float[mriData3D.img_width*mriData3D.img_height*mriData3D.img_slices];
+	Noise3D(unoise_img, mriData3D.img_width, mriData3D.img_height, mriData3D.img_slices,
+							  m_3DNoiseS, m_3DNoiseM*10.0f, m_3DNoiseV*10.0f, m_3DNoiseB);
+	float* vnoise_img = new float[mriData3D.img_width*mriData3D.img_height*mriData3D.img_slices];
+	Noise3D(vnoise_img, mriData3D.img_width, mriData3D.img_height, mriData3D.img_slices,
+							  m_3DNoiseS+1, m_3DNoiseM*10.0f, m_3DNoiseV*10.0f, m_3DNoiseB);
+	float* wnoise_img = new float[mriData3D.img_width*mriData3D.img_height*mriData3D.img_slices];
+	Noise3D(wnoise_img, mriData3D.img_width, mriData3D.img_height, mriData3D.img_slices,
+							  m_3DNoiseS+2, m_3DNoiseM*10.0f, m_3DNoiseV*10.0f, m_3DNoiseB);
+
+	// add velocities to noise
+	int x, y, z, index;
+	short* mr = new short[mriData3D.img_width*mriData3D.img_height*mriData3D.img_slices];
+	short* u = new short[mriData3D.img_width*mriData3D.img_height*mriData3D.img_slices];
+	short* v = new short[mriData3D.img_width*mriData3D.img_height*mriData3D.img_slices];
+	short* w = new short[mriData3D.img_width*mriData3D.img_height*mriData3D.img_slices];
+
+	for(z=0; z<mriData3D.img_slices; z++)
+		for(x=0; x<mriData3D.img_width; x++)
+			for(y=0; y<mriData3D.img_height; y++)
+			{
+				index = z*mriData3D.img_width*mriData3D.img_height+y*mriData3D.img_width+x;
+				
+				// u part
+				if(mriData3D.u[index] + unoise_img[index] > 1800)
+					u[index] = FloatToInt(mriData3D.u[index] 
+					+ unoise_img[index]) - 3600;
+				else
+					if(mriData3D.u[index] + unoise_img[index] < -1800)
+						u[index] = FloatToInt(mriData3D.u[index] 
+						+ unoise_img[index]) + 3600;
+					else
+						u[index] = FloatToInt(mriData3D.u[index] 
+						+ unoise_img[index]);
+			}
+
+	for(z=0; z<mriData3D.img_slices; z++)
+		for(x=0; x<mriData3D.img_width; x++)
+			for(y=0; y<mriData3D.img_height; y++)
+			{
+				index = z*mriData3D.img_width*mriData3D.img_height+y*mriData3D.img_width+x;
+				
+				// v part
+				if(mriData3D.v[index] + vnoise_img[index] > 1800)
+					v[index] = FloatToInt(mriData3D.v[index] 
+					+ vnoise_img[index]) - 3600;
+				else
+					if(mriData3D.v[index] + vnoise_img[index] < -1800)
+						v[index] = FloatToInt(mriData3D.v[index] 
+						+ vnoise_img[index]) + 3600;
+					else
+						v[index] = FloatToInt(mriData3D.v[index] 
+						+ vnoise_img[index]);
+			}
+			
+	for(z=0; z<mriData3D.img_slices; z++)
+		for(x=0; x<mriData3D.img_width; x++)
+			for(y=0; y<mriData3D.img_height; y++)
+			{
+				index = z*mriData3D.img_width*mriData3D.img_height+y*mriData3D.img_width+x;
+				
+				// w part
+				if(mriData3D.w[index] + wnoise_img[index] > 1800)
+					w[index] = FloatToInt(mriData3D.w[index] 
+					+ wnoise_img[index]) - 3600;
+				else
+					if(mriData3D.w[index] + wnoise_img[index] < -1800)
+						w[index] = FloatToInt(mriData3D.w[index] 
+						+ wnoise_img[index]) + 3600;
+					else
+						w[index] = FloatToInt(mriData3D.w[index] 
+						+ wnoise_img[index]);
+					
+							
+			}
+			
+	mriData3DNoisy.SetData(mriData3D.img_width, mriData3D.img_height, mriData3D.img_slices, 
+		mriData3D.mr, u, v, w);
+
+	delete [] mr;
+	delete [] u;
+	delete [] v;
+	delete [] w;
+	delete [] unoise_img;
+	delete [] vnoise_img;
+	delete [] wnoise_img;
+
+	MessageBeep(0);
+	
+}
+
+
+15/1/04
+#ifdef _DEBUG
+			CMemoryState memTracker1;
+			memTracker1.Checkpoint();
+			CString sms233;
+#endif 
+		
+		
+		
+		
+		
+#ifdef _DEBUG
+			CMemoryState memTracker2;
+			memTracker2.Checkpoint();
+			CMemoryState memDiff;
+			memDiff.Difference(memTracker1, memTracker2);
+			sms233.Format("%i\n", errorList->GetSize());
+			TRACE(sms233);
+			memDiff.DumpStatistics();
+#endif 

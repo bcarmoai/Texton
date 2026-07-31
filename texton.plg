@@ -1,0 +1,83 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Texton - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\bsc01r\LOCALS~1\Temp\RSPD3C.tmp" with contents
+[
+opengl32.lib glaux.lib vtkFiltering.lib vtkGraphics.lib vtkHybrid.lib vtkImaging.lib vtkIO.lib vtkRendering.lib vtkCommon.lib /nologo /subsystem:windows /profile /debug /machine:I386 /out:"Debug/Texton.exe" 
+".\Debug\Border.obj"
+".\Debug\CannyDetector.obj"
+".\Debug\CannyDlg.obj"
+".\Debug\CMRStreamlines.obj"
+".\Debug\Condensation.obj"
+".\Debug\Data3DMRI.obj"
+".\Debug\DataMRI.obj"
+".\Debug\Dlg7DLoadOptions.obj"
+".\Debug\DlgArcFit.obj"
+".\Debug\DlgContourOptions.obj"
+".\Debug\DlgFindVortex.obj"
+".\Debug\DlgHough.obj"
+".\Debug\DlgMoreVtx.obj"
+".\Debug\DlgRestoration.obj"
+".\Debug\DlgRestorROI.obj"
+".\Debug\DlgSaveVtkArrows.obj"
+".\Debug\DlgStreamlines.obj"
+".\Debug\DlgStrmZoom.obj"
+".\Debug\DlgTasks.obj"
+".\Debug\DlgTextBox.obj"
+".\Debug\DlgTracking.obj"
+".\Debug\DlgVolumeDicom.obj"
+".\Debug\DlgVolView.obj"
+".\Debug\DlgVoorhees.obj"
+".\Debug\DlgVortexVtk.obj"
+".\Debug\DlgZoomedSlice.obj"
+".\Debug\FlowAbstraction.obj"
+".\Debug\FlowCluster.obj"
+".\Debug\HCluster.obj"
+".\Debug\HeartCFDCell.obj"
+".\Debug\HeartCFDVertex.obj"
+".\Debug\HoughPlotter.obj"
+".\Debug\ImageColour.obj"
+".\Debug\ImagePgm.obj"
+".\Debug\ImageRGB.obj"
+".\Debug\Int.obj"
+".\Debug\IntArray.obj"
+".\Debug\MainFrm.obj"
+".\Debug\nrutil.obj"
+".\Debug\NumrecEigenvalues.obj"
+".\Debug\NumrecOptimiser.obj"
+".\Debug\Plane.obj"
+".\Debug\Point3D.obj"
+".\Debug\PointFloat3D.obj"
+".\Debug\PointFloatArray.obj"
+".\Debug\Rect3D.obj"
+".\Debug\Rnd_no_gen.obj"
+".\Debug\SortedList.obj"
+".\Debug\StdAfx.obj"
+".\Debug\test3d.obj"
+".\Debug\Texton.obj"
+".\Debug\TextonDoc.obj"
+".\Debug\TextonView.obj"
+".\Debug\ThresDlg.obj"
+".\Debug\Vector3D.obj"
+".\Debug\VoorheesBlobs.obj"
+".\Debug\VtkUtilities.obj"
+".\Debug\WrapperIftw.obj"
+".\Debug\WrapperLoG.obj"
+".\Debug\Texton.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\bsc01r\LOCALS~1\Temp\RSPD3C.tmp"
+<h3>Output Window</h3>
+Linking...
+
+
+
+<h3>Results</h3>
+Texton.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>
